@@ -45,12 +45,12 @@ def recomendar(request):
 
 #ENTORNOS  - - - - - - - - - - - - - - - -  - -- - - 
 def entornos(request):
-    return render(request, 'entornos.html')
+    return render(request, 'entornos/entornos.html')
 
 #EXPERTO - - - - - - - - - - - - - - - -  - -- - -
 def entornoExperto(request):
-    return render(request, 'experto.html')
+    return render(request, 'entornos/experto.html')
 
 #NO EXPERTO - - - - - - - - - - - - - - - -  - -- - -
 def entornoNoExperto(request):
-    return render(request, 'noExperto.html')
+    return render(request, 'entornos/noExperto.html')
