@@ -13,7 +13,7 @@ def home(request):
 
 def about (request):
     personas = [{'name1': 'Dilan Sobenis'}, {'name2': 'Edwar Gonzalez'}, {'name3':'Jeisson Paredes'}]
-    return render (request, 'mi-plantilla-1.html', {'personas': personas})
+    return render (request, 'about.html', {'personas': personas})
 
 
 #RECOMENDACIÓN =  = == = = == = = = = = = = = = == == = = = == = = = =  = = = == = = = = = == = = = = = == = = =
@@ -28,8 +28,7 @@ def recomendar(request):
         ram = request.POST.get('ram_memory')
         storage = request.POST.get('primary_storage_capacity')
 
-        
-        
+        #DEFINIMOS DICCIONARIO
         filters = {
             'brand': brand,
             'processor_brand': processor,
@@ -39,4 +38,4 @@ def recomendar(request):
 
         recommendations = get_recommendations(filters)
 
-    return render (request, 'formulario.html', {'recommendations' : recommendations})
+    return render (request, 'recomendar.html', {'recommendations' : recommendations})

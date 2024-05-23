@@ -10,7 +10,8 @@ urlpatterns = [
     #INICIO
     path('', views.home, name='home'),
     path('about', views.about, name='about'),
-    #RECOMENDACIÓN
+    
+    #RECOMENDACIÓN - - - - -- - - - - - - - - - - - -  
     path('recomendar/', views.recomendar, name='recomendar'),
    
 ]
