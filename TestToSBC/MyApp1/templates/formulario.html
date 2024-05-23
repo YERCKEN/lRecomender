@@ -1,0 +1,31 @@
+<h1>Recomendaciones de Laptops</h1>
+
+<form method="post">
+
+    {% csrf_token %}
+
+    <label for="brand">Marca</label>
+    <input type="text" id="brand" name="brand">
+
+    <label for="processor_brand">Procesador</label>
+    <input type="text" id="processor_brand" name="processor_brand">
+
+    <label for="ram_memory">Ram</label>
+    <input type="number" id="ram_memory" name="ram_memory">
+
+    <label for="primary_storage_capacity">Almacenamiento (GB)</label>
+    <input type="number" id="primary_storage_capacity" name="primary_storage_capacity">
+
+    <button type="submit">Recomendar</button>
+
+</form>
+
+{% if recommendations %}
+    <h2>Laptops Recomendadas</h2>
+    <ul>
+        {% for model in recommendations %}
+        <li>{{ model }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
