@@ -4,9 +4,9 @@
 ***Proyecto JIC 2024*** 
 
 **- Integrantes**
-  - Dilan Sobenis   (https://github.com/dilan-dev)
-  - Jeisson Paredes (https://github.com/Jeison0770)
-  - Edwar Gonzalez  (https://github.com/YERCKEN)
+  - Dilan Sobenis   https://github.com/dilan-dev
+  - Jeisson Paredes https://github.com/Jeison0770
+  - Edwar Gonzalez  https://github.com/YERCKEN
 
 # DEPENDENCIAS PARA DJANGO 
 
