@@ -11,7 +11,12 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('about', views.about, name='about'),
     
-    #RECOMENDACIÓN - - - - -- - - - - - - - - - - - -  
-    path('recomendar/', views.recomendar, name='recomendar'),
+   #ENTORNOS
+   path('entornos', views.entornos, name='entornos'),
+   path('entornoExperto', views.entornoExperto, name='entornoExperto'),
+   path('entornoNoExperto', views.entornoNoExperto, name='entornoNoExperto'),
+   
+   #RECOMENDACIÓN - - - - -- - - - - - - - - - - - -  
+   path('recomendar/', views.recomendar, name='recomendar'),
    
 ]

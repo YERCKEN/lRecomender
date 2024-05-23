@@ -39,3 +39,18 @@ def recomendar(request):
         recommendations = get_recommendations(filters)
 
     return render (request, 'recomendar.html', {'recommendations' : recommendations})
+
+
+# ENTORNOS    = = = = = = = = = = == = = = = == = = = = = = = = = == = = = = = = = = = = = ==
+
+#ENTORNOS  - - - - - - - - - - - - - - - -  - -- - - 
+def entornos(request):
+    return render(request, 'entornos.html')
+
+#EXPERTO - - - - - - - - - - - - - - - -  - -- - -
+def entornoExperto(request):
+    return render(request, 'experto.html')
+
+#NO EXPERTO - - - - - - - - - - - - - - - -  - -- - -
+def entornoNoExperto(request):
+    return render(request, 'noExperto.html')

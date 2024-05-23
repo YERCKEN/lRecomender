@@ -1,0 +1,77 @@
+/*GENERAL*/
+.container {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+
+}
+
+.environment {
+    padding: 20px;
+    width: 35%;
+ 
+}
+
+.environment-icono{
+    display: flex;
+    justify-content: left;
+
+    margin-bottom: 2rem;
+}
+
+
+
+
+
+.environment button {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+
+    background-color: #fff;
+
+    color: rgb(0, 0, 0);
+
+    border: none;
+    border-radius: 20px;
+
+    padding: 2rem;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
+
+.environment button:hover {
+    background-color: #e5efff;
+    transform:  scale(calc(1 + 0.01));
+ 
+    border-bottom: 3px solid #7eb2ff;
+}
+
+
+.environment button h2{
+    font-size: 1.5rem;
+    font-weight: 600;
+    height: auto;
+    padding-top: 0.2rem;
+    margin-left: 1rem;
+
+}
+
+.environment button p{
+    margin-top: 1rem;
+    text-align: justify;
+}
+
+.environment button ul{
+    margin-top: 1rem;
+    text-align: justify;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+
+.environment button li{
+    margin-top: 0.5rem;
+    text-align: justify;
+  
+}

@@ -1,0 +1,114 @@
+
+/*TODO  - - -- - - - - - -- - - - - - - - - - - - - - - - - -- - - - - -*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*HEADER -  -- - - - -- - - - - - - -- - - - - - -- - - - - - - - - -*/
+
+.header{
+
+    /*FONT*/
+    font-size: 15px;
+    font-family: "Exo 2", sans-serif;
+
+    /*color*/
+    background-color: #fff;
+    color: #3885FC;
+
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+
+    /*alineacion*/
+    padding: 1rem 8rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*LOGO*/
+.header img {
+    width: 14rem;
+   height: auto;
+
+}
+
+
+/*OPCIONES*/
+
+.header-opciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 4rem
+
+}
+
+.header-opciones ul {
+    font-size: 1rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+}
+
+.header-opciones ul a{
+    text-decoration: none;
+    color: black;
+    
+}
+
+.header-opciones ul a:hover{
+    color: #3885FC;
+}
+
+
+
+
+/*BOTONES*/
+
+.header-botones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-left: 5rem;
+}
+
+.btnLogin{
+    background-color: #fff;
+    color: #3885FC;
+    padding: 0.5rem 1rem;
+    border: 1px solid #3885FC;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+
+    margin-right: 0.2rem;
+}
+
+.btnLogin:hover{
+    background-color: #3885FC;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.btnRegistro{
+    background-color: #3885FC;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    font-size: 1rem;
+
+    margin-left: 0.2rem;
+}
+
+.btnRegistro:hover{
+    background-color: #fff;
+    color: #3885FC;
+    border: 1px solid #3885FC;
+    transition: 0.5s;
+}

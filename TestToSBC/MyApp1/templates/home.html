@@ -3,9 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Index</title>
 </head>
 <body>
-    <h1>Esta es mi página de inicio</h1>
+
+    {% extends 'layouts/base.html' %}
+
+    {% load static %}
+    {% block content %}
+
+    <!-- BODY  ------------------------------------------------------------------------------>
+    <div class="contenido">
+
+        <!-- BIENVENIDA ------------------------------------------------------------------------------>
+        <div class="contenido-bienvenida">
+
+            <!-- img -->
+            <img src="{% static 'img/4588.jpg' %}" alt="">
+            <!-- texto -->
+            <div class="contenido-bienvenida-text">
+                <h2>¡Bienvenido a LRecomender!</h2>
+                <p>
+                    LRecomender es la plataforma perfecta para ayudarte a descubrir la laptop ideal para ti. Con nuestra herramienta, podrás encontrar la laptop que se adapte a tus necesidades y preferencias.
+                </p>
+                <p>¡Vamos, empieza a explorar las mejores opciones para ti!</p>
+
+                 <!-- botonees -->
+                <form action="{% url 'entornos' %}" method="GET">
+                    
+                    <button class="btnEmpezar">Empezar</button>
+                </form>
+             
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
+
+
+
+    
 </body>
 </html>

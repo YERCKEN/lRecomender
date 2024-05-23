@@ -1,0 +1,67 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+{% block content %}
+
+    <div class="container">
+
+    <!--ENTORNO EXPERTO - - - - - - - - - - -- - - - -- - -------- - - - - - - - - - -- -  -- --->
+        <div class="environment">
+
+            <form action="{% url  'entornoExperto' %}" method="GET">
+                        
+                <button>   
+    
+                    <!--ICONO . . . -. - - - - -- - - - - - -- -- - - - - - - - --  --->
+                    <div class="environment-icono">
+                        <img src="{% static 'img/hardwareIcon.svg' %}" alt="" width="40px">
+                        <h2>Entorno Técnico</h2>
+                    </div>
+    
+    
+    
+                    <p>
+                        Este entorno está diseñado para usuarios con conocimientos técnicos avanzados que pueden proporcionar información detallada de especificaciones de hardware.
+                    </p>
+    
+                    <ul>
+    
+                        <li>Entrada directa de especificaciones de hardware.</li>
+                        <li>Recomendaciones precisas basadas en detalles técnicos.</li>
+                        <li>Mayor control sobre las características del portátil.</li>
+    
+                    </ul>
+    
+                </button>
+                
+            </form>
+        </div>
+
+    <!--ENTORNO NO EXPERTO - - - - - - - - - - -- - - - -- - -------- - - - - - - - - - -- -  -- --->
+        <div class="environment">
+           
+            <form action="{% url  'entornoNoExperto' %}" method="GET">
+                
+                <button>
+                      <!--ICONO . . . -. - - - - -- - - - - - -- -- - - - - - - - --  --->
+                      <div class="environment-icono">
+                        <img src="{% static 'img/softwareIcon.svg' %}" alt="" width="40px">
+                        <h2>Entorno No Técnico</h2>
+                    </div>
+                    
+                    <p>Este entorno está diseñado para usuarios que no tienen conocimientos técnicos y prefieren filtrar y seleccionar software para generar especificaciones de hardware recomendadas.</p>
+                    <ul>
+                        <li>Interfaz amigable y fácil de usar.</li>
+                        <li>Filtrado basado en programas y aplicaciones.</li>
+                        <li>Recomendaciones basadas en requisitos de software.</li>
+                    </ul>
+    
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+{% endblock %}

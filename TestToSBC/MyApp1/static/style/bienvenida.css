@@ -1,0 +1,69 @@
+
+
+.contenido-bienvenida {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 0 9rem;
+
+}
+
+
+.contenido-bienvenida-text {
+    width: 50%;
+}
+
+
+.contenido-bienvenida-text h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f232a;
+    margin-bottom: 1rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.contenido-bienvenida-text p {
+    font-size: 1rem;
+    color: #1f232a;
+    
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+    text-align: justify;
+    margin-top: 1rem;
+}
+
+
+
+.contenido-bienvenida img{
+    width: 40%;
+    height: auto;
+
+    margin-top: 1rem;
+
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+
+.contenido-bienvenida-text button {
+    background-color: #1f232a;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    margin-top: 1rem;
+ border-radius: 5px;
+    border: 2px solid #1f232a;
+}
+
+
+.contenido-bienvenida-text button:hover {
+    background-color: #ffffff;
+    color: #1f232a;
+    border: 2px solid #1f232a;
+    transition: 0.5s;
+    border-radius: 5px;
+}
