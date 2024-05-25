@@ -20,8 +20,30 @@
                     <!-- MODELOS DE LOS PROCESADORES - - - - - - -->
                     {% for cpuModel in modeloProcesadores %}
 
-                        <button class="hardwareItem">
+                        <button id="cpu" class="hardwareItem">
                             {{ cpuModel }}
+                        </button>
+
+                    {% endfor %}
+                    
+                    <h2>RAM</h2>
+
+                    <!-- RAM - - - - - - -->
+                    {% for ram in ram %}
+
+                        <button id="ram" class="hardwareItem">
+                            {{ ram }}
+                        </button>
+
+                    {% endfor %}
+
+                    <h2>DISK</h2>
+                    
+                    <!-- RAM - - - - - - -->
+                    {% for disk in disk %}
+
+                        <button id="disk" class="hardwareItem">
+                            {{ disk }}
                         </button>
 
                     {% endfor %}

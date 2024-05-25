@@ -53,9 +53,12 @@ def entornos(request):
 
 #EXPERTO - - - - - - - - - - - - - - - -  - -- - -
 def entornoExperto(request):
-    #print(utils.obtenerModeloProcesadores())
-    # Renderizo y envio la lista de los procesadores ejecutando la función [ obtenerModeloProcesadores() ] 
-    return render(request, 'entornos/experto.html', {'modeloProcesadores': utils.obtenerModeloProcesadores()})
+    # Renderizo
+    return render(request, 'entornos/experto.html', {
+        # envio la lista de las especificacione hardware disponibles para el modelo
+        'modeloProcesadores': utils.obtenerModeloProcesadores(), 
+        'ram': utils.obtenerCapacidadesRam(),
+        'disk': utils.obtenerCapacidadesDisk()})
 
 #NO EXPERTO - - - - - - - - - - - - - - - -  - -- - -
 def entornoNoExperto(request):
