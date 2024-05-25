@@ -1,5 +1,6 @@
 {% extends '../layouts/base.html' %}
 
+{% load static %}
 {% block content%}
 
     <div class="containerExperto">
@@ -68,9 +69,42 @@
         </div>
 
         <!--SECCIÓN DE RESUMEN-->
-        <div class="seccionResumen  "> 
+        <div class="seccionResumen"> 
             <h2>Resumen</h2>
+
+            <!--SECCIÓN DE RESUMEN-->
     
+            <div class="seccionResumen-especificaciones">
+
+                <div class="seccionResumen-especificaciones-item">
+
+                    <img src="{% static 'img/iconoCPU.png' %}" alt="">
+                    <h3>CPU:</h3>
+
+                    <p>Core i5</p>
+                    <input type="hidden" id="cpu" name="cpu">
+                    
+                </div>
+
+                <div class="seccionResumen-especificaciones-item">
+                    <img src="{% static 'img/iconoRam2.png' %}" alt="">
+                    <h3>RAM (GB):</h3>
+
+                    <p>8</p>
+                    <input type="hidden" id="ram" name="ram">
+                </div>
+
+                <div class="seccionResumen-especificaciones-item">
+                    <img src="{% static 'img/iconoDisk.png' %}" alt="">
+                    <h3>DISK (GB):</h3>
+
+                    <p>512</p>
+                    <input type="hidden" id="disk" name="disk">
+                </div>
+
+
+            </div>
+
         </div>
 
     </div>

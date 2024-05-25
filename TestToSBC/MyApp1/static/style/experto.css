@@ -3,13 +3,12 @@
     display: flex;
     justify-content: center;
     padding: 20px;
-    max-width: 1200px;
     margin-top: 3rem;
 
     margin-bottom: 5rem;
 
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+  
 }
 
 .SeccionStyle {
@@ -150,4 +149,56 @@
     }
 
 
+}
+
+
+
+
+/*SECCION DE RESUMEN   ?= = = = = = = == = = = = = = = = = == = = = = = = = = = = = */
+
+.seccionResumen{
+    border: none;
+    border-left: 2px solid #7eb2ff ;
+    padding: 2rem;
+    
+    margin-left: 2rem;
+    width: 20%;
+}
+
+.seccionResumen h2{
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-align: left;
+  
+}
+
+.seccionResumen h3{
+   
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.seccionResumen-especificaciones-item{
+    display: flex;
+    justify-content: left;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.seccionResumen-especificaciones-item img{
+    width: 2rem;
+   
+}
+
+.seccionResumen-especificaciones-item h3{
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+    padding-top: 0.3rem;
+}
+
+.seccionResumen-especificaciones-item p{
+    width: 100%;
+    padding-left: 2.5rem;
+    margin-top: 0.5rem;
+    color: #3885FC;
 }
