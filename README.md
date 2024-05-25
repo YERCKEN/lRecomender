@@ -4,12 +4,12 @@
 ***Proyecto JIC 2024*** 
 
 # DEPENDENCIAS 
-1. Crea un entorno virual *(instala virtualenv si no lo tienes)*
-  - **Crea el entorno**   *virtualenv venv*
-  - **Activa el entorno**  *.\venv\Scripts\activate*
+1. **Crea un entorno virual *(instala virtualenv si no lo tienes)***
+    - **Crea el entorno**   *virtualenv venv*
+    - **Activa el entorno**  *.\venv\Scripts\activate*
 
-2. Instala las demás despendencias
-  - pip install django pandas openpyxl scikit-learn mysqlclient
+2. **Instala las demás despendencias**
+    - pip install django pandas openpyxl scikit-learn mysqlclient
 
 # BD
 
