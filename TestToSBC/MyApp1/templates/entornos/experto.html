@@ -14,35 +14,22 @@
 
 
             <div class="hardwareList">
-                <!-- Sección por letras del abecedario -->
+             
                 <div class="hardwareSection">
-                    <h3>A</h3>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
-                    <div class="hardwareItem">AMD Ryzen 7</div>
+      
+                    <!-- MODELOS DE LOS PROCESADORES - - - - - - -->
+                    {% for cpuModel in modeloProcesadores %}
+
+                        <button class="hardwareItem">
+                            {{ cpuModel }}
+                        </button>
+
+                    {% endfor %}
+                 
                     
-                    <!-- Más divs de hardware con la letra A -->
+                    
                 </div>
-                <div class="hardwareSection">
-                    <h3>B</h3>
-                    <div class="hardwareItem">Brand X Model Y</div>
-                    <!-- Más divs de hardware con la letra B -->
-                </div>
+
                 <!-- Repetir para cada letra del abecedario según sea necesario -->
             </div>
 
