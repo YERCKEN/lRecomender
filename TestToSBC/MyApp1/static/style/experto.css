@@ -16,10 +16,46 @@
     width: 60%;
     padding: 20px;
     border-radius: 10px;
-    
+}
+
+.SeccionStyle h2{
+   font-weight: 500;
+   font-size: 1.5rem;
+}
+
+
+/*BOTONES -- - - - - - -  -*/
+.secciones{
+    display: flex;
+   
+    padding: 1rem;
+    border-bottom: 2px solid #3885FC;
+
+    margin-bottom: 1rem;
 
 }
 
+.secciones button{
+    padding: 0.2rem;
+    border: none;
+    border-left: 2px solid #3885FC;
+    background-color: white;
+    cursor:pointer;
+    margin-right: 1rem;
+
+    width: 5rem;
+}
+
+.secciones button:hover{
+
+    color: #3885FC;
+    margin-right: 2rem;
+    transition: 0.5s;
+}
+
+
+
+/*BUSQUEDAD -- - - - - - -  -*/
 .barraDeBusquedad input {
     margin-top: 2rem;
     width: 100%;
@@ -47,11 +83,15 @@
 
 .hardwareSection {
     margin-bottom: 20px;
+
 }
 
 .hardwareSection h3 {
-    margin-bottom: 10px;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
     font-size: 1em;
+    font-weight: 400;
+    
 }
 
 .hardwareItem {

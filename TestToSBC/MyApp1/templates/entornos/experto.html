@@ -4,19 +4,29 @@
 
     <div class="containerExperto">
         
-        <!--SECCIÓN DE SELECCIÓN-->
+        <!--SECCIÓN DE SELECCIÓN----------------------------------------->
         <div class="SeccionSeleccion SeccionStyle">
-            <h2>Selecciona especifiaciones Hardware</h2>
 
+            <h2>Selecciona especifiaciones Hardware</h2>
+            
+            <!--
             <div class="barraDeBusquedad">
                 <input type="text" placeholder="Intel I9">
-            </div>
+            </div>-->
+
+           
+            <dir class="secciones">
+                <button class="secciones-btn" onclick="scrollToSection('cpuTitle')">CPU</button>
+                <button class="secciones-btn" onclick="scrollToSection('ramTitle')">RAM</button>
+                <button class="secciones-btn" onclick="scrollToSection('diskTitle')">DISK</button>
+            </dir>
 
 
             <div class="hardwareList">
              
                 <div class="hardwareSection">
-      
+
+                    <h3 id="cpuTitle">CPU</h2>
                     <!-- MODELOS DE LOS PROCESADORES - - - - - - -->
                     {% for cpuModel in modeloProcesadores %}
 
@@ -26,8 +36,7 @@
 
                     {% endfor %}
                     
-                    <h2>RAM</h2>
-
+                    <h3 id="ramTitle">RAM</h2>
                     <!-- RAM - - - - - - -->
                     {% for ram in ram %}
 
@@ -37,7 +46,7 @@
 
                     {% endfor %}
 
-                    <h2>DISK</h2>
+                    <h3 id="diskTitle">DISK</h2>
                     
                     <!-- RAM - - - - - - -->
                     {% for disk in disk %}
