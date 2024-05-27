@@ -169,7 +169,7 @@
     font-weight: 500;
     font-size: 1.5rem;
     text-align: left;
-  
+   
 }
 
 .seccionResumen h3{
@@ -202,3 +202,36 @@
     margin-top: 0.5rem;
     color: #3885FC;
 }
+
+/*BTN*/
+.seccionResumen-especificaciones-btn {
+    margin-top: 2rem;
+    
+    padding-top: 1rem;
+    width: auto;
+}
+
+.seccionResumen-especificaciones-btn button{
+    padding: 0.5rem 1rem;
+
+    border-radius:  0px 5px  5px 0px;
+    background-color: white;
+    color: #3885FC;
+    border: 2px solid #3885FC ;
+   
+    cursor: pointer;
+
+}
+
+
+.seccionResumen-especificaciones-btn button:hover{
+
+    background-color: #3885FC;
+    color: white;
+
+    cursor: pointer;
+
+}
+
+
+
