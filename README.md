@@ -27,3 +27,4 @@ Descomentar y comentar la conexión de la base de datos, según corresponda
 
 PRUEBA #1 EDWAR 
 PRUEBA #2 SIN IGNORAR CACHES
+PRUEBA #3 
