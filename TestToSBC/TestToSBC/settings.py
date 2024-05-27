@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'TestToSBC.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 # EDWAR  - - - - - - - - - - - - - - - - - - - - - - -
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -91,7 +91,7 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-
+"""
 # DILAN  - - - - - - - - - - - - - - - - - - - - - - -
 """
 DATABASES = {
@@ -109,19 +109,16 @@ DATABASES = {
 
 # JEISSON  - - - - - - - - - - - - - - - - - - - - - - -
 
-"""
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'modeloLaptops', #nombre de la base de datos
         'USER': 'root', #user root (de manual y por defecto)
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
     }
-}}
-
-"""
+}
 
 
 # Password validation
