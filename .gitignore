@@ -1,5 +1,5 @@
 
 TestToSBC/TestToSBC/settings.py
-TestToSBC/MyApp1/__pycache__
-TestToSBC/MyApp1/migrations/__pycache__
-TestToSBC/TestToSBC/__pycache__
+# Ignora archivos de caché de Python en cualquier lugar del proyecto
+**/__pycache__/
+**/*.py[cod]
