@@ -27,48 +27,65 @@
              
                 <div class="hardwareSection">
 
-                    <h3 id="cpuTitle">CPU</h2>
-                    <!-- MODELOS DE LOS PROCESADORES - - - - - - -->
-                    {% for cpuModel in modeloProcesadores %}
+                    <!-- MODELOS DE LOS PROCESADORES =============================================================-->
+                    <div class="cpuModel">
+                        
+                        <h3 id="cpuTitle">CPU</h2>
 
-                        <button id="cpu" class="hardwareItem">
-                            {{ cpuModel }}
-                        </button>
+                        <!-- insertamos los modelos de procesadores de la BD - - - - - - -->
+                            {% for cpuModel in modeloProcesadores %}
+        
+                                <button  class="hardwareItem" data-index="{{ forloop.counter }}">
+                                    {{ cpuModel }}
+                                </button>
+        
+                            {% endfor %}
+                            
+                    </div>
 
-                    {% endfor %}
+                    <!-- CANTIDADES RAM ============================================================= - - - - - - -->
+                    <div class="ramAmount">
+                        
+                        <h3 id="ramTitle">RAM</h2>
+
+                        <!--insertamos las cantidades de ram disponibles en la BD - - - - - - -->
+                        {% for ram in ram %}
+    
+                            <button class="hardwareItem">
+                                {{ ram }}
+                            </button>
+    
+                        {% endfor %}
+
+                    </div>
+
+
+                    <!-- CANTIDADES DISK ============================================================= - - - - - - -->
+                    <div class="diskAmount">
+                        
+                        <h3 id="diskTitle">DISK</h2>
+                        
+                        <!--insertamos las cantidades de Disk disponibles en la BD - - - - - - -->
+                        {% for disk in disk %}
+    
+                            <button class="hardwareItem">
+                                {{ disk }}
+                            </button>
+    
+                        {% endfor %}
+
+                    </div>
                     
-                    <h3 id="ramTitle">RAM</h2>
-                    <!-- RAM - - - - - - -->
-                    {% for ram in ram %}
-
-                        <button id="ram" class="hardwareItem">
-                            {{ ram }}
-                        </button>
-
-                    {% endfor %}
-
-                    <h3 id="diskTitle">DISK</h2>
-                    
-                    <!-- RAM - - - - - - -->
-                    {% for disk in disk %}
-
-                        <button id="disk" class="hardwareItem">
-                            {{ disk }}
-                        </button>
-
-                    {% endfor %}
                  
-                    
-                    
+                
                 </div>
 
-                <!-- Repetir para cada letra del abecedario según sea necesario -->
             </div>
 
 
         </div>
 
-        <!--SECCIÓN DE RESUMEN-->
+        <!--SECCIÓN DE RESUMEN = = ============================================================-->
         <div class="seccionResumen"> 
             <h2>Resumen</h2>
 
@@ -76,39 +93,53 @@
     
             <div class="seccionResumen-especificaciones">
 
+                <!--CPU =   = == = = == ========= == = = = = = = = = = = = = =-->
                 <div class="seccionResumen-especificaciones-item">
 
                     <img src="{% static 'img/iconoCPU.png' %}" alt="">
                     <h3>CPU:</h3>
 
-                    <p>Core i5</p>
-                    <input type="hidden" id="cpu" name="cpu">
+                    <p id="pcpu">No Seleccionado</p>
                     
                 </div>
 
+                <!--RAM =   = == = = == ========= == = = = = = = = = = = = = =-->
                 <div class="seccionResumen-especificaciones-item">
                     <img src="{% static 'img/iconoRam2.png' %}" alt="">
                     <h3>RAM (GB):</h3>
 
-                    <p>8</p>
-                    <input type="hidden" id="ram" name="ram">
+                    <p id="pRam">No Seleccionado</p>
+
                 </div>
 
+                <!--DISK =   = == = = == ========= == = = = = = = = = = = = = =-->
                 <div class="seccionResumen-especificaciones-item">
                     <img src="{% static 'img/iconoDisk.png' %}" alt="">
                     <h3>DISK (GB):</h3>
 
-                    <p>512</p>
-                    <input type="hidden" id="disk" name="disk">
+                    <p id="pDisk">No Seleccionado</p>
                 </div>
-                
-                <div class="seccionResumen-especificaciones-btn">
 
-                <!--BOTON SOLICITAR RECOMENDACIÓN-->    
-                    <button>
-                        Generar Recomendación
-                    </button>
+                 <!--BOTON SOLICITAR RECOMENDACIÓN-->    
+                <div class="seccionResumen-especificaciones-btn">
+                    
+                    <!-- Generar recomendación-->
+                    <form method="POST">
+                        {% csrf_token %}
+                        <!--INPUTS OCULTAS-->    
+                        <input type="hidden" id="cpuInput" name="cpuInput">
+                        <input type="hidden" id="ramInput" name="ramInput">
+                        <input type="hidden" id="diskInput" name="diskInput">
+    
+                        <!--BUTTONS-->    
+                        <button type="submit">
+                            Generar Recomendación
+                        </button>
+
+                    </form>
+
                 </div>
+
 
             </div>
 

@@ -53,6 +53,17 @@ def entornos(request):
 
 #EXPERTO - - - - - - - - - - - - - - - -  - -- - -
 def entornoExperto(request):
+    
+    if request.method == 'POST':
+        processor = request.POST.get('cpuInput')
+        ram = request.POST.get('ramInput')
+        storage = request.POST.get('diskInput')
+        print("POST EXPERTO - - - - - - - - - - - - - - ")
+        print(processor)
+        print(ram)
+        print(storage)
+        
+        
     # Renderizo
     return render(request, 'entornos/experto.html', {
         # envio la lista de las especificacione hardware disponibles para el modelo

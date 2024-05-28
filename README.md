@@ -25,7 +25,3 @@ Descomentar y comentar la conexión de la base de datos, según corresponda
   - Jeisson Paredes https://github.com/Jeison0770
   - Edwar Gonzalez  https://github.com/YERCKEN
 
-PRUEBA #1 EDWAR 
-PRUEBA #2 SIN IGNORAR CACHES
-PRUEBA #3
-PRUEBA #4 ME FUNCIONA

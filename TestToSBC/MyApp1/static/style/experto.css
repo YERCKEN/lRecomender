@@ -54,6 +54,7 @@
 
 
 
+
 /*BUSQUEDAD -- - - - - - -  -*/
 .barraDeBusquedad input {
     margin-top: 2rem;
@@ -105,6 +106,14 @@
     box-sizing: border-box;
     cursor: pointer;
 }
+
+.selected{
+    background-color: #3885FC;
+    color: white;
+    font-weight: 700;
+    transition: 500ms;
+}
+
 
 .hardwareItem:nth-child(3n) {
     margin-right: 0; /* Eliminar el margen derecho del tercer elemento en la fila */
@@ -232,6 +241,8 @@
     cursor: pointer;
 
 }
+
+
 
 
 
