@@ -69,4 +69,37 @@
      </div>
 
 </div>
+<div>
+    <h1>Select Software</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for software in softwares %}
+            <input type="checkbox" name="selected_software" value="{{ software.id }}">{{ software.software }}<br>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    {% if max_specs %}
+        <h2>Maximum Specifications</h2>
+        <p>CPU Intel: {{ max_specs.cpu_intel }}</p>
+        <p>CPU AMD: {{ max_specs.cpu_amd }}</p>
+        <p>RAM: {{ max_specs.ram }} GB</p>
+        <p>SSD: {{ max_specs.ssd }} GB</p>
+    {% endif %}
+    {% if recommended_laptops %}
+        <h1>Recommended Laptops</h1>
+        <ul>
+            {% for laptop in recommended_laptops %}
+                <li>{{ laptop }}</li>
+            {% endfor %}
+        </ul>
+    {% elif max_specs %}
+        <p style="color:red;">No tenemos computadoras disponibles.</p>
+    {% endif %}
+    </ul>
+</div>
 {% endblock %}
