@@ -28,5 +28,13 @@ class Laptop (models.Model):
 
     def __str__(self):
         return f"{self.brand} {self.model}"
-    
-    
+#modelo software
+class Software(models.Model):
+    software = models.CharField(max_length=100)
+    cpu_intel = models.CharField(max_length=100, null=True, blank=True)
+    cpu_amd = models.CharField(max_length=100, null=True, blank=True)
+    ram = models.IntegerField(null=True, blank=True)
+    ssd = models.IntegerField(null=True, blank=True)
+
+    def __str__(self):
+        return self.software
