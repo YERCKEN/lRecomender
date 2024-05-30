@@ -19,4 +19,7 @@ urlpatterns = [
    #RECOMENDACIÓN - - - - -- - - - - - - - - - - - -  
    path('recomendar/', views.recomendar, name='recomendar'),
    
+   path('recomendaciones/', views.verRecomendaciones, name='recomendaciones'),
+   
+   
 ]

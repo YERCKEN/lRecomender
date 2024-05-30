@@ -74,3 +74,7 @@ def entornoExperto(request):
 #NO EXPERTO - - - - - - - - - - - - - - - -  - -- - -
 def entornoNoExperto(request):
     return render(request, 'entornos/noExperto.html')
+
+#VER LAS RECOMENDACIONES
+def verRecomendaciones(request):
+    return render(request, 'entornos/recomendaciones.html')
