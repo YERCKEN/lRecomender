@@ -11,6 +11,18 @@
 2. **Instala las demás despendencias**
     - pip install django pandas openpyxl scikit-learn mysqlclient
 
+# IMPORTAR DATA SOFTWARE (csv)
+
+PATH DEL ARCHIVO 
+
+MyApp1
+|---management
+|   |---commands
+|       |---import_data2.py
+
+**comando** *manage.py import_data2*
+
+
 # BD
 
 **ARCHIVO:** *'TestToSBC/settings.py'*

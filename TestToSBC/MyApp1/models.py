@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+#MODELO LAPTOPS = = ===== ===============================================================================
 
 class Laptop (models.Model):
     index = models.IntegerField(primary_key=True)
@@ -28,7 +28,11 @@ class Laptop (models.Model):
 
     def __str__(self):
         return f"{self.brand} {self.model}"
-#modelo software
+    
+    
+    
+#MODELO SOFTWARE = = ===== ===============================================================================
+
 class Software(models.Model):
     software = models.CharField(max_length=100)
     cpu_intel = models.CharField(max_length=100, null=True, blank=True)

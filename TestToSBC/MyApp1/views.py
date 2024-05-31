@@ -1,7 +1,7 @@
 from django.shortcuts import render
 # DEPENDENCIAS RECOMENDACIÓN
 from .models import Software
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .recomenderFolder.recomender import get_recommendations
 from django.views.decorators.csrf import csrf_protect
 
@@ -20,7 +20,7 @@ def about (request):
     return render (request, 'about.html', {'personas': personas})
 
 
-#RECOMENDACIÓN =  = == = = == = = = = = = = = = == == = = = == = = = =  = = = == = = = = = == = = = = = == = = =
+#RECOMENDACIÓN  DULAN V1=  = == = = == = = = = = = = = = == == = = = == = = = =  = = = == = = = = = == = = = = = == = = =
 
 @csrf_protect
 def recomendar(request):
@@ -34,7 +34,7 @@ def recomendar(request):
         }
         recommendations = get_recommendations(filters)
 
-    return render (request, 'entornos/noExperto.html', {'recommendations' : recommendations})
+    return render (request, 'recomendar.html', {'recommendations' : recommendations})
 
 
 # ENTORNOS    = = = = = = = = = = == = = = = == = = = = = = = = = == = = = = = = = = = = = ==
@@ -46,32 +46,71 @@ def entornos(request):
 #EXPERTO - - - - - - - - - - - - - - - -  - -- - -
 def entornoExperto(request):
     
+    recommended_laptops = None
+    # Obtenemos los valores del POST
     if request.method == 'POST':
-        processor = request.POST.get('cpuInput')
-        ram = request.POST.get('ramInput')
-        storage = request.POST.get('diskInput')
-        print("POST EXPERTO - - - - - - - - - - - - - - ")
-        print(processor)
-        print(ram)
-        print(storage)
+        
+       # Definimos el diccionario que se le mandará a la función
+        filters = {
+            'processor_tier': request.POST.get('cpuInput'),
+            'ram_memory': request.POST.get('ramInput'),
+            'primary_storage_capacity': request.POST.get('diskInput')
+        }
+        
+        # Mostramos por consola valores que se envian para generar la recomendaciones
+        print("\nEspecificaciones [EXPERTO] =====================================\n")
+        print(filters)
+        print("\n======================================")
+        
+        # Se llama a ala función para generar una recomendación
+        recommended_laptops = get_recommendations(filters)
+        
+        #ELIMINAMOS LO QUE ESTÉ LUEGO DEL () "HP Spectre x360 16-f2002TU Laptop (13th Gen Core i7/ 16GB/ 1TB SSD/ Win11 Home)"
+        for laptop in recommended_laptops:
+            laptop['model'] = laptop['model'].split('(')[0].strip()
+        
+            
+        print("\n\nSe enviaron especificaciones para generar la recomendación [EXPERTO]\n")
+        print(recommended_laptops)
+        
+        #print("LAPTOP #1")
+        #print(laptop)
+        
+        print("\n\n")
+         
+        # Guardamos los datos en la sesión
+        request.session['recommended_laptops'] = recommended_laptops
+        
+        # Retornamos la vista de las recomendaciones y mandamos las laptops recomendadas
+        return redirect('recomendaciones')
         
         
-    # Renderizo
+    # RENDER ANTES DEL POST
     return render(request, 'entornos/experto.html', {
         # envio la lista de las especificacione hardware disponibles para el modelo
         'modeloProcesadores': utils.obtenerModeloProcesadores(), 
         'ram': utils.obtenerCapacidadesRam(),
         'disk': utils.obtenerCapacidadesDisk()})
-
+    
+    
+    
+"""
 #NO EXPERTO - - - - - - - - - - - - - - - -  - -- - -
 def entornoNoExperto(request):
     return render(request, 'entornos/noExperto.html')
-
+"""
 
 #OBTENER LAS ESPECIFICACIONES MAS ALTAS DE LOS SOFTWARE Y GENERAR LA RECOMENDACION DE LA LAPTOP Y VER LA LISTA DE SOFTWARE
-def software_list(request):
+def entornoNoExperto(request):
+    
     if request.method == 'POST':
         selected_software_ids = request.POST.getlist('selected_software')
+        
+        print('\nID - - - - - - - - - -')
+        
+        print(selected_software_ids)
+        
+        print('\n - - - - - - - - - -')
         
         if not selected_software_ids:
             return render(request, 'entornos/noExperto.html', {'softwares': Software.objects.all(), 'error': 'Please select at least one software.'})
@@ -92,6 +131,12 @@ def software_list(request):
             'primary_storage_capacity': max_specs['ssd']
         }
         
+        #DEBUG
+        
+        print("\nEspecificaciones [NO EXPERTO] =====================================\n")
+        print(filters)
+        print("\n======================================")
+        
         # Get recommended laptops
         recommended_laptops = get_recommendations(filters)
 
@@ -102,6 +147,9 @@ def software_list(request):
         })
     
     return render(request, 'entornos/noExperto.html', {'softwares': Software.objects.all()})
+
+
+
 def calculate_max_specs(softwares):
     max_cpu_intel = None
     max_cpu_amd = None
@@ -124,6 +172,16 @@ def calculate_max_specs(softwares):
         'ram': max_ram,
         'ssd': max_ssd
     }
+    
+    
+    
 #VER LAS RECOMENDACIONES
 def verRecomendaciones(request):
-    return render(request, 'entornos/recomendaciones.html')
+    
+    # Recupera los datos de la sesión
+    recommended_laptops = request.session.get('recommended_laptops')
+    
+    
+    return render(request, 'entornos/recomendaciones.html', {
+        'laptops': recommended_laptops
+    })

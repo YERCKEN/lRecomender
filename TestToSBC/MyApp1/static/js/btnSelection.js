@@ -24,6 +24,24 @@ document.addEventListener('DOMContentLoaded', function() {
      const diskText = document.getElementById('pDisk');
      const diskInput = document.getElementById('diskInput');
 
+   // Seleccionar el botón 'Generar Recomendación'
+   const generateButton = document.getElementById('generarR');
+    
+
+
+    // Verificar selecciones y mostrar el botón si todas están seleccionadas
+    function verificarSelecciones() {
+        if (cpuText.textContent !== "No Seleccionado" && 
+            ramText.textContent !== "No Seleccionado" && 
+            diskText.textContent !== "No Seleccionado") {
+            generateButton.style.display = 'block';
+        } else {
+            generateButton.style.display = 'none';
+        }
+    }
+
+    // Inicialmente ocultar el botón
+    generateButton.style.display = 'none';
 
     //FUNCIÓN CPU= = = = = ====== = = == = = = = = = === = = = = = = = = = = = == = = === =====
 
@@ -43,6 +61,10 @@ document.addEventListener('DOMContentLoaded', function() {
             // Imprimir el valor del input oculto en la consola
             console.log("CPU");
             console.log(cpuInput.value);
+            
+            // Verificar selecciones
+            verificarSelecciones();
+
         });
     });
 
@@ -65,7 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Imprimir el valor del input oculto en la consola
             console.log("RAM");
             console.log(ramInput.value);
-      
+            // Verificar selecciones
+            verificarSelecciones();
         });
     });
 
@@ -87,7 +110,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Imprimir el valor del input oculto en la consola
             console.log("DISK");
             console.log(diskInput.value);
-      
+            // Verificar selecciones
+            verificarSelecciones();
         });
     });
 

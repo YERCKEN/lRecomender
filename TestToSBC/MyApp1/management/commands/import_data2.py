@@ -6,7 +6,8 @@ class Command(BaseCommand):
     help = 'Load data from CSV file'
 
     def handle(self, *args, **kwargs):
-        file_path = 'C:/Users/jeiso/OneDrive/Documentos/MEGA/año 5/Practicaprogramacion/djangojic/recomendacionesconsfotware.csv'
+        #file_path = 'C:/Users/jeiso/OneDrive/Documentos/MEGA/año 5/Practicaprogramacion/djangojic/recomendacionesconsfotware.csv'
+        file_path = 'C:/Users/edkac/PnodeJS/ProyectosDJango/lRecomender/TestToSBC/MyApp1/management/recomendacionesconsfotware.csv'
         try:
             with open(file_path, newline='', encoding='utf-8') as csvfile:
                 reader = csv.DictReader(csvfile, delimiter=';')

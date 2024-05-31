@@ -20,45 +20,26 @@
                 
                 <h3 id="Ofimática">OFIMÁTICA</h2>
                    
+                
+                 <!-- insertamos los modelos de procesadores de la BD - - - - - - -->
+                 {% for software in softwares %}
         
-                    <button class="hardwareItem">
-                       WORD
-                    </button>
-        
-                    <button class="hardwareItem">
-                        POWER POINT
-                     </button>
-        
-                     <button class="hardwareItem">
-                        TEAMS
-                     </button>
-        
-                     <button class="hardwareItem">
-                        EXCEL
-                     </button>
+                 <button class="hardwareItem" data-index="{{ forloop.counter }}">
+                     {{ software.software }}
+                 </button>
+
+                {% endfor %}
+                   
         
                 <h3 id="Juegos">PROGRAMACIÓN</h2>
-
-                    <button class="hardwareItem">
-                        VISUAL STUDIO CODE
-                     </button>
-
-                     <button class="hardwareItem">
-                        VISUAL STUDIO
-                     </button>
-
-                     <button class="hardwareItem">
-                        UNITY
-                     </button>
-        
                 <h3 id="Juegos">JUEGOS</h2>
                 
-                </div>
+            </div>
             
 
 
 
-            </div>
+        </div>
     </div>
 
      <!--SECCIÓN DE RESUMEN-->
@@ -69,15 +50,27 @@
      </div>
 
 </div>
+
+
+
 <div>
+
+    
     <h1>Select Software</h1>
+
     <form method="post">
+
         {% csrf_token %}
         {% for software in softwares %}
+        
             <input type="checkbox" name="selected_software" value="{{ software.id }}">{{ software.software }}<br>
         {% endfor %}
         <button type="submit">Submit</button>
+
     </form>
+
+
+
 
     {% if error %}
         <p style="color:red;">{{ error }}</p>
@@ -90,6 +83,7 @@
         <p>RAM: {{ max_specs.ram }} GB</p>
         <p>SSD: {{ max_specs.ssd }} GB</p>
     {% endif %}
+
     {% if recommended_laptops %}
         <h1>Recommended Laptops</h1>
         <ul>

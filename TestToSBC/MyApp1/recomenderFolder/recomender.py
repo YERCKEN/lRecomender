@@ -1,34 +1,36 @@
 import pandas as pd
-
 from ..models import Laptop, Software
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
 def load_laptop_data(filters=None):
-
     laptops = Laptop.objects.all()
 
     if filters:
         if filters.get('brand'):
             laptops = laptops.filter(brand__icontains=filters['brand'])
-
         if filters.get('processor_tier'):
             laptops = laptops.filter(processor_tier__icontains=filters['processor_tier'])
-
         if filters.get('ram_memory'):
             laptops = laptops.filter(ram_memory=filters['ram_memory'])
-
         if filters.get('primary_storage_capacity'):
             laptops = laptops.filter(primary_storage_capacity=filters['primary_storage_capacity'])
 
-    
     data = {
         'index': [],
         'brand': [],
         'model': [],
         'processor_tier': [],
         'ram_memory': [],
-        'primary_storage_capacity': []
+        'primary_storage_capacity': [],
+        'processor_brand': [],
+        'num_cores': [],
+        'num_threads': [],
+        'primary_storage_type': [],
+        'secondary_storage_type': [],
+        'secondary_storage_capacity': [],
+        'gpu_brand': [],
+        'gpu_type': []
     }
 
     for laptop in laptops:
@@ -38,66 +40,64 @@ def load_laptop_data(filters=None):
         data['processor_tier'].append(laptop.processor_tier)
         data['ram_memory'].append(laptop.ram_memory)
         data['primary_storage_capacity'].append(laptop.primary_storage_capacity)
+        data['processor_brand'].append(laptop.processor_brand)
+        data['num_cores'].append(laptop.num_cores)
+        data['num_threads'].append(laptop.num_threads)
+        data['primary_storage_type'].append(laptop.primary_storage_type)
+        data['secondary_storage_type'].append(laptop.secondary_storage_type)
+        data['secondary_storage_capacity'].append(laptop.secondary_storage_capacity)
+        data['gpu_brand'].append(laptop.gpu_brand)
+        data['gpu_type'].append(laptop.gpu_type)
 
     df = pd.DataFrame(data)
+    df = df.fillna('')
+
     # Convertir todos los campos a cadena antes de concatenar
-    df['brand'] = df['brand'].astype(str)
-    df['model'] = df['model'].astype(str)
-    df['processor_tier'] = df['processor_tier'].astype(str)
-    df['ram_memory'] = df['ram_memory'].astype(str)
-    df['primary_storage_capacity'] = df['primary_storage_capacity'].astype(str)
-
-    # Imprimir los tipos de datos para depuración
-    print(df.dtypes)
-
-    df['features'] = df['brand'] + ' ' + df['model'] + ' ' + df['processor_tier'] + ' ' + df['ram_memory'] + 'GB RAM ' + df['primary_storage_capacity'] + 'GB SSD'
+    df['features'] = (
+        df['brand'].astype(str) + ' ' +
+        df['model'].astype(str) + ' ' +
+        df['processor_tier'].astype(str) + ' ' +
+        df['ram_memory'].astype(str) + 'GB RAM ' +
+        df['primary_storage_capacity'].astype(str) + 'GB SSD'
+    )
 
     df['features'] = df['features'].fillna('')
-    
-    print('RETURNAMOS')
     return df
-
 
 def compute_tfidf_matrix(data):
     tfidf = TfidfVectorizer(stop_words='english')
     tfidf_matrix = tfidf.fit_transform(data['features'])
     return tfidf_matrix
 
-
 def get_cosine_sim(matrix):
     cosine_sim = linear_kernel(matrix, matrix)
     return cosine_sim
 
-
 def recommend_laptops(data, cosine_sim, ref_index, brand_filter):
-    #logger.debug('ENTRANDO A RECOMENDAR_LAPTOPS')
-    
     laptop_indices = list(data.index)
     sim_scores = cosine_sim[ref_index]
     sorted_indices = sim_scores.argsort()[-11:-1]
-    
-    recommended_models = data['model'].iloc[sorted_indices].tolist()
-    
-    if brand_filter:
-        recommended_models = [model for model in recommended_models if brand_filter.lower() in model.lower()]
-    
-    return recommended_models
 
+    recommended_laptops = data.iloc[sorted_indices]
+
+    if brand_filter:
+        recommended_laptops = recommended_laptops[recommended_laptops['brand'].str.contains(brand_filter, case=False)]
+
+    recommended_details = recommended_laptops[[
+        'brand', 'model', 'processor_brand', 'processor_tier', 'num_cores', 'num_threads',
+        'ram_memory', 'primary_storage_type', 'primary_storage_capacity',
+        'secondary_storage_type', 'secondary_storage_capacity', 'gpu_brand', 'gpu_type'
+    ]].to_dict(orient='records')
+
+    return recommended_details
 
 def get_recommendations(filters):
     data = load_laptop_data(filters)
     if data.empty:
         return []  # Manejo de caso cuando no hay datos disponibles
     
-    # Logging para depuración
-    #logger.debug("Data loaded:")
-    #logger.debug(data.head())
-
     tfidf_matrix = compute_tfidf_matrix(data)
     cosine_sim = get_cosine_sim(tfidf_matrix)
-    
-    # Logging para depuración
-    #logger.debug("TF-IDF matrix and cosine similarity computed.")
     
     # Seleccionar el primer índice que cumple con los filtros
     ref_index = data.index[0]
@@ -105,15 +105,11 @@ def get_recommendations(filters):
     # Obtener la marca del producto de referencia para filtrar las recomendaciones
     brand_filter = filters.get('brand', '')
     
-    recommended_models = recommend_laptops(data, cosine_sim, ref_index, brand_filter)
+    recommended_details = recommend_laptops(data, cosine_sim, ref_index, brand_filter)
     
-    # Logging para depuración
-    #logger.debug("Recommended models:")
-    #logger.debug(recommended_models)
-    
-    return recommended_models
+    return recommended_details
 
-#CARGAR SOFTWARE
+# CARGAR SOFTWARE
 def load_software_data():
     softwares = Software.objects.all()
 

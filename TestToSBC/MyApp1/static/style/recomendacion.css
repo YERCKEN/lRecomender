@@ -18,9 +18,9 @@
     padding: 16px;
     margin: 0.2rem;
     border-radius: 8px;
-    max-width: 450px;
+   
     width: 400px;
-
+    max-width: 500px;
 }
 
 
@@ -141,8 +141,8 @@
 
 .laptop-modelo-copy{
     display: flex;
-    justify-content: space-between;
-    flex-wrap:wrap ;
+    justify-content: left;
+   
  
 }
 
@@ -164,3 +164,42 @@
 }
 
 
+.laptop-modelo-copy-btn{
+    margin-left: 0.5rem;
+}
+
+
+.idk{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+
+
+    padding: 1rem;
+
+}
+
+
+.idk img{
+    width: 30rem;
+    
+}
+
+.idk p{
+    width: 100%;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.idk a{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3885FC;
+    text-decoration: none;
+}
+
+.idk a:hover{
+
+    color: #043b8d;
+}
