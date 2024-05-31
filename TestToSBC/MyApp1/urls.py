@@ -14,13 +14,9 @@ urlpatterns = [
    #ENTORNOS
    path('entornos', views.entornos, name='entornos'),
    path('entornoExperto', views.entornoExperto, name='entornoExperto'),
-   
-   
-   
    path('entornoNoExperto', views.entornoNoExperto, name='entornoNoExperto'),
-   
 
-   #RECOMENDACIÓN - - - - -- - - - - - - - - - - - -  
+   #RECOMENDACIÓN - - - - -- - - - - - - - - - - - -
    path('recomendar/', views.recomendar, name='recomendar'),
    
    path('recomendaciones/', views.verRecomendaciones, name='recomendaciones'),

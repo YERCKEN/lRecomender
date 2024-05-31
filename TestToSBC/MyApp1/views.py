@@ -94,59 +94,60 @@ def entornoExperto(request):
     
     
     
-"""
-#NO EXPERTO - - - - - - - - - - - - - - - -  - -- - -
-def entornoNoExperto(request):
-    return render(request, 'entornos/noExperto.html')
-"""
 
-#OBTENER LAS ESPECIFICACIONES MAS ALTAS DE LOS SOFTWARE Y GENERAR LA RECOMENDACION DE LA LAPTOP Y VER LA LISTA DE SOFTWARE
+#NO EXPERTO - - - - - - - - - - - - - - - -  - -- - -
+
 def entornoNoExperto(request):
     
     if request.method == 'POST':
         selected_software_ids = request.POST.getlist('selected_software')
         
-        print('\nID - - - - - - - - - -')
-        
+        print('\nGENERACIÓN R. [NO EXPERTO] =================================\n')
+
+        print('\n\nIDs\n')
         print(selected_software_ids)
-        
-        print('\n - - - - - - - - - -')
-        
-        if not selected_software_ids:
-            return render(request, 'entornos/noExperto.html', {'softwares': Software.objects.all(), 'error': 'Please select at least one software.'})
 
-        # Fetch the selected software
+        # SACAMOS LOS NOMBRES DE LOS SOFTWARES CON LOS IDS MANDADOS PRO EL FRONT
         selected_software = Software.objects.filter(id__in=selected_software_ids)
+        print('\n\nSOTWAREs\n')
+        print(selected_software)
         
-        if not selected_software:
-            return render(request, 'entornos/noExperto.html', {'softwares': Software.objects.all(), 'error': 'No software found.'})
-        
-        # Calculate max specifications
+        # CALCULAR MEDIA DE LAS ESPECIFICACIONES
         max_specs = calculate_max_specs(selected_software)
-
-        # Prepare filters for laptop recommendations
+        
+        # PREPARAMOS DICCIONARIO PARA ENVIARLO A LA FUNCIÓN PARA OBTENER RECOMENDACIONES
         filters = {
             'processor_tier': max_specs['cpu_intel'] if max_specs['cpu_intel'] else max_specs['cpu_amd'],
             'ram_memory': max_specs['ram'],
             'primary_storage_capacity': max_specs['ssd']
         }
         
-        #DEBUG
-        
-        print("\nEspecificaciones [NO EXPERTO] =====================================\n")
+        # DEBUG ESPECIFIACIONES
+        print("\n\nEspecificaciones (MEDIA) \n")
         print(filters)
-        print("\n======================================")
+        print("\n")
         
-        # Get recommended laptops
+        
+        # OBTENEMOS RECOMENDACIONES
         recommended_laptops = get_recommendations(filters)
-
-        return render(request, 'entornos/noExperto.html', {
-            'softwares': Software.objects.all(),
-            'max_specs': max_specs,
-            'recommended_laptops': recommended_laptops
-        })
-    
+        
+        #ELIMINAMOS LO QUE ESTÉ LUEGO DEL () "HP Spectre x360 16-f2002TU Laptop (13th Gen Core i7/ 16GB/ 1TB SSD/ Win11 Home)"
+        for laptop in recommended_laptops:
+            laptop['model'] = laptop['model'].split('(')[0].strip()
+            
+            
+        print("RECOMENDACIONES\n")
+        print(recommended_laptops)
+        print('\n=============================== ==============================\n')
+        # Guardamos los datos en la sesión
+        request.session['recommended_laptops'] = recommended_laptops
+        
+        # Retornamos la vista de las recomendaciones y mandamos las laptops recomendadas
+        return redirect('recomendaciones')
+        
+        
     return render(request, 'entornos/noExperto.html', {'softwares': Software.objects.all()})
+
 
 
 

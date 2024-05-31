@@ -11,51 +11,67 @@
         
         <!--SECCIÓN DE SELECCIÓN----------------------------------------->
         <div class="barraDeBusquedad">
-            <input type="text" placeholder="Intel I9">
+            <input type="text" id="searchInput" placeholder="Intel I9" onkeyup="filterSoftware()">
         </div>
+
+        <form method="POST">
+            {% csrf_token %}
+           
+
+        
         
         <div class="hardwareList">
+
             <div class="hardwareSection">
                 
-                
-                <h3 id="Ofimática">OFIMÁTICA</h2>
+                <h3 id="Ofimática">SOFTWARES</h2>
                    
-                
                  <!-- insertamos los modelos de procesadores de la BD - - - - - - -->
-                 {% for software in softwares %}
-        
-                 <button class="hardwareItem" data-index="{{ forloop.counter }}">
-                     {{ software.software }}
-                 </button>
+                 <div class="softwareList">
+                     
+                        {% for software in softwares %}
 
-                {% endfor %}
+                        <div class="hardwareItem" id="softwareItem{{ forloop.counter }}">
+                            <label>
+                                <input type="checkbox" class="softwareCheckbox" name="selected_software" value="{{ software.id }}">{{ software.software }}
+                            </label>
+                            <br>
+                        </div>
+
+                        {% endfor %}
+                 </div>
                    
-        
-                <h3 id="Juegos">PROGRAMACIÓN</h2>
-                <h3 id="Juegos">JUEGOS</h2>
                 
             </div>
-            
-
-
-
+        
         </div>
+ 
     </div>
 
-     <!--SECCIÓN DE RESUMEN-->
-     <div class="seccionResumen">
+     <!--SECCIÓN DE RESUMEN-===============================================================================--->
+    <div class="seccionResumen">
          
          <h2>Resumen</h2>
 
+        <!-- LISTA-->
+         <div class="pSoftwares">
+               
+         </div>
+
+        <!-- Generar recomendación-->
+     
+        <button id="generarRSF" type="submit">
+            Generar Recomendación
+        </button>
      </div>
 
 </div>
+</form>
 
-
+<!--
 
 <div>
 
-    
     <h1>Select Software</h1>
 
     <form method="post">
@@ -64,6 +80,7 @@
         {% for software in softwares %}
         
             <input type="checkbox" name="selected_software" value="{{ software.id }}">{{ software.software }}<br>
+
         {% endfor %}
         <button type="submit">Submit</button>
 
@@ -96,4 +113,5 @@
     {% endif %}
     </ul>
 </div>
+-->
 {% endblock %}
