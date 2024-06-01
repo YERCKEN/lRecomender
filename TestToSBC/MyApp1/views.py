@@ -19,7 +19,6 @@ def about (request):
     personas = [{'name1': 'Dilan Sobenis'}, {'name2': 'Edwar Gonzalez'}, {'name3':'Jeisson Paredes'}]
     return render (request, 'about.html', {'personas': personas})
 
-
 #RECOMENDACIÓN  DULAN V1=  = == = = == = = = = = = = = = == == = = = == = = = =  = = = == = = = = = == = = = = = == = = =
 
 @csrf_protect
@@ -50,6 +49,8 @@ def entornoExperto(request):
     # Obtenemos los valores del POST
     if request.method == 'POST':
         
+        print('\nGENERACIÓN R. [EXPERTO] =================================\n')
+        
        # Definimos el diccionario que se le mandará a la función
         filters = {
             'processor_tier': request.POST.get('cpuInput'),
@@ -58,9 +59,9 @@ def entornoExperto(request):
         }
         
         # Mostramos por consola valores que se envian para generar la recomendaciones
-        print("\nEspecificaciones [EXPERTO] =====================================\n")
+        print("\n\nEspecificaciones (INGRESADAS) \n")
         print(filters)
-        print("\n======================================")
+
         
         # Se llama a ala función para generar una recomendación
         recommended_laptops = get_recommendations(filters)
@@ -70,13 +71,9 @@ def entornoExperto(request):
             laptop['model'] = laptop['model'].split('(')[0].strip()
         
             
-        print("\n\nSe enviaron especificaciones para generar la recomendación [EXPERTO]\n")
+        print("\n\nRECOMENDACIONES\n")
         print(recommended_laptops)
-        
-        #print("LAPTOP #1")
-        #print(laptop)
-        
-        print("\n\n")
+        print('\n=============================== ==============================\n')
          
         # Guardamos los datos en la sesión
         request.session['recommended_laptops'] = recommended_laptops
@@ -92,9 +89,6 @@ def entornoExperto(request):
         'ram': utils.obtenerCapacidadesRam(),
         'disk': utils.obtenerCapacidadesDisk()})
     
-    
-    
-
 #NO EXPERTO - - - - - - - - - - - - - - - -  - -- - -
 
 def entornoNoExperto(request):
@@ -113,7 +107,7 @@ def entornoNoExperto(request):
         print(selected_software)
         
         # CALCULAR MEDIA DE LAS ESPECIFICACIONES
-        max_specs = calculate_max_specs(selected_software)
+        max_specs = utils.calculate_max_specs(selected_software)
         
         # PREPARAMOS DICCIONARIO PARA ENVIARLO A LA FUNCIÓN PARA OBTENER RECOMENDACIONES
         filters = {
@@ -148,35 +142,7 @@ def entornoNoExperto(request):
         
     return render(request, 'entornos/noExperto.html', {'softwares': Software.objects.all()})
 
-
-
-
-def calculate_max_specs(softwares):
-    max_cpu_intel = None
-    max_cpu_amd = None
-    max_ram = 0
-    max_ssd = 0
-
-    for software in softwares:
-        if software.cpu_intel and (max_cpu_intel is None or software.cpu_intel > max_cpu_intel):
-            max_cpu_intel = software.cpu_intel
-        if software.cpu_amd and (max_cpu_amd is None or software.cpu_amd > max_cpu_amd):
-            max_cpu_amd = software.cpu_amd
-        if software.ram and software.ram > max_ram:
-            max_ram = software.ram
-        if software.ssd and software.ssd > max_ssd:
-            max_ssd = software.ssd
-
-    return {
-        'cpu_intel': max_cpu_intel,
-        'cpu_amd': max_cpu_amd,
-        'ram': max_ram,
-        'ssd': max_ssd
-    }
-    
-    
-    
-#VER LAS RECOMENDACIONES
+#VER LAS RECOMENDACIONES - - - - - - - - - - - - - - - -  - -- - -
 def verRecomendaciones(request):
     
     # Recupera los datos de la sesión

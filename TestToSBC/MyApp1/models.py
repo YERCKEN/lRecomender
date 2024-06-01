@@ -32,13 +32,13 @@ class Laptop (models.Model):
     
     
 #MODELO SOFTWARE = = ===== ===============================================================================
-
 class Software(models.Model):
     software = models.CharField(max_length=100)
     cpu_intel = models.CharField(max_length=100, null=True, blank=True)
     cpu_amd = models.CharField(max_length=100, null=True, blank=True)
     ram = models.IntegerField(null=True, blank=True)
     ssd = models.IntegerField(null=True, blank=True)
+    tipo = models.IntegerField(null=True, blank=True)  # Nuevo campo
 
     def __str__(self):
         return self.software

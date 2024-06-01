@@ -1,31 +1,32 @@
-software;CPU Intel;CPU AMD;RAM;SSD
-AutoCAD;core i7;ryzen 7;16;512
-Blender;core i5;ryzen 5;16;512
-Fusion;core i7;ryzen 7;16;512
-Office 365;core i3;ryzen 3;4;256
-Visual Studio;core i7;ryzen 7;16;512
-Visual Studio Code;core i3;ryzen 3;8;256
-Arena;core i7;ryzen 7;16;512
-Unity;core i7;ryzen 7;16;512
-DaVinci Resolve;core i7;ryzen 7;16;512
-OBS;core i5;ryzen 5;8;512
-Arduino IDE;core i3;ryzen 3;8;256
-Android Studio;core i7;ryzen 7;16;512
-Google Chrome;core i3;ryzen 3;8;256
-XAMP;core i3;ryzen 3;8;512
-Virtual Box;core i5;ryzen 5;8;512
-GitHub;core i3;ryzen 3;8;256
-Krita;core i5;ryzen 5;8;512
-PyCharm;core i7;ryzen 7;16;512
-Revit;core i7;ryzen 7;16;512
-MATLAB;core i7;ryzen 7;16;512
-Multism;core i5;ryzen 5;8;512
-Eclipse;core i5;ryzen 5;8;512
-Zoom;core i3;ryzen 3;8;256
-GitLab    ;core i3;ryzen 3;8;256
-LOL;core i5;ryzen 5;8;256
-Fornite;core i5;ryzen 5;8;512
-CSGO: 2;core i5;ryzen 5;8;512
-FIFA;core i5;ryzen 5;8;512
-Valorant;core i3;ryzen 3;8;256
-Minecraft;core i5;ryzen 5;8;512
+software;CPU Intel;CPU AMD;RAM;SSD;tipo
+AutoCAD;core i7;ryzen 7;16;512;1
+Blender;core i5;ryzen 5;16;512;1
+Fusion;core i7;ryzen 7;16;512;1
+Office 365;core i3;ryzen 3;4;256;3
+Visual Studio;core i7;ryzen 7;16;512;2
+Visual Studio Code;core i3;ryzen 3;8;256;2
+Arena;core i7;ryzen 7;16;512;2
+Unity;core i7;ryzen 7;16;512;2
+DaVinci Resolve;core i7;ryzen 7;16;512;1
+OBS;core i5;ryzen 5;8;512;0
+Arduino IDE;core i3;ryzen 3;8;256;2
+Android Studio;core i7;ryzen 7;16;512;2
+Google Chrome;core i3;ryzen 3;8;256;5
+XAMP;core i3;ryzen 3;8;512;2
+Virtual Box;core i5;ryzen 5;8;512;6
+GitHub;core i3;ryzen 3;8;256;2
+Krita;core i5;ryzen 5;8;512;1
+PyCharm;core i7;ryzen 7;16;512;2
+Revit;core i7;ryzen 7;16;512;1
+MATLAB;core i7;ryzen 7;16;512;2
+Multism;core i5;ryzen 5;8;512;2
+Eclipse;core i5;ryzen 5;8;512;2
+Zoom;core i3;ryzen 3;8;256;0
+GitLab;core i3;ryzen 3;8;256;2
+LOL;core i5;ryzen 5;8;256;4
+Fornite;core i5;ryzen 5;8;512;4
+CSGO;core i5;ryzen 5;8;512;4
+FIFA;core i5;ryzen 5;8;512;4
+Valorant;core i3;ryzen 3;8;256;4
+Minecraft;core i5;ryzen 5;8;512;4
+

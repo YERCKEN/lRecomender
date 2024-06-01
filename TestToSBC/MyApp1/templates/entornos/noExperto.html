@@ -1,6 +1,7 @@
 {% extends '../layouts/base.html' %}
 
 {% block content%}
+{% load static %}
 
 
 <div class="containerExperto">
@@ -11,8 +12,26 @@
         
         <!--SECCIÓN DE SELECCIÓN----------------------------------------->
         <div class="barraDeBusquedad">
-            <input type="text" id="searchInput" placeholder="Intel I9" onkeyup="filterSoftware()">
+            <input type="text" id="searchInput" placeholder="Busca tú software aquí" onkeyup="filterSoftware()">
         </div>
+
+        <dir class="secciones">
+
+            <button class="secciones-btn" onclick="scrollToSection('Ofimática')"><img src="{% static 'img/ofimatica.png' %}" alt=""></button>
+
+            <button class="secciones-btn" onclick="scrollToSection('dev')"><img src="{% static 'img/dev.png' %}" alt=""></button>
+
+            <button class="secciones-btn" onclick="scrollToSection('diseño')"><img src="{% static 'img/diseño.png' %}" alt=""></button>
+
+            <button class="secciones-btn" onclick="scrollToSection('NavegadoresW')"><img src="{% static 'img/web.png' %}" alt=""></button>
+
+            <button class="secciones-btn" onclick="scrollToSection('juegos')"><img src="{% static 'img/games.png' %}" alt=""></button>
+
+            <button class="secciones-btn" onclick="scrollToSection('virt')"><img src="{% static 'img/virtualizacion.png' %}" alt=""></button>
+
+            <button class="secciones-btn" onclick="scrollToSection('otros')"><img src="{% static 'img/otros.png' %}" alt=""></button>
+
+        </dir>
 
         <form method="POST">
             {% csrf_token %}
@@ -23,23 +42,146 @@
         <div class="hardwareList">
 
             <div class="hardwareSection">
-                
-                <h3 id="Ofimática">SOFTWARES</h2>
-                   
-                 <!-- insertamos los modelos de procesadores de la BD - - - - - - -->
-                 <div class="softwareList">
-                     
-                        {% for software in softwares %}
 
-                        <div class="hardwareItem" id="softwareItem{{ forloop.counter }}">
-                            <label>
-                                <input type="checkbox" class="softwareCheckbox" name="selected_software" value="{{ software.id }}">{{ software.software }}
-                            </label>
-                            <br>
-                        </div>
+                <!-- Clasificación de tipos de software
+                        0: Otro
+                        1: Diseño gráfico y multimedia
+                        2: Desarrollo de software
+                        3: Aplicaciones de oficina
+                        4: Juegos
+                        5: Navegadores web
+                        6: Virtualización-->
+                <div class="softwareList">
 
-                        {% endfor %}
-                 </div>
+                    <h3 id="Ofimática">Ofimática</h3>
+
+                    {% for software in softwares %}
+
+                        {% if software.tipo == 3 %}
+
+                            <div class="hardwareItem" id="softwareItem{{ forloop.counter }}">
+                                <label>
+                                    <input type="checkbox" class="softwareCheckbox" name="selected_software" value="{{ software.id }}">{{ software.software }}
+                                </label>
+                                <br>
+                            </div>
+                            
+                        {% endif %}
+
+                    {% endfor %}
+
+
+
+                    <h3 id="dev">Desarrollo de software</h3>
+
+                    {% for software in softwares %}
+
+                        {% if software.tipo == 2 %}
+
+                            <div class="hardwareItem" id="softwareItem{{ forloop.counter }}">
+                                <label>
+                                    <input type="checkbox" class="softwareCheckbox" name="selected_software" value="{{ software.id }}">{{ software.software }}
+                                </label>
+                                <br>
+                            </div>
+                            
+                        {% endif %}
+
+                    {% endfor %}
+
+
+                    <h3 id="diseño">Diseño y multimedia</h3>
+
+                    {% for software in softwares %}
+
+                        {% if software.tipo == 1 %}
+
+                            <div class="hardwareItem" id="softwareItem{{ forloop.counter }}">
+                                <label>
+                                    <input type="checkbox" class="softwareCheckbox" name="selected_software" value="{{ software.id }}">{{ software.software }}
+                                </label>
+                                <br>
+                            </div>
+                            
+                        {% endif %}
+
+                    {% endfor %}
+
+
+
+                    <h3 id="NavegadoresW">Navegadores web</h3>
+
+                    {% for software in softwares %}
+
+                        {% if software.tipo == 5 %}
+
+                            <div class="hardwareItem" id="softwareItem{{ forloop.counter }}">
+                                <label>
+                                    <input type="checkbox" class="softwareCheckbox" name="selected_software" value="{{ software.id }}">{{ software.software }}
+                                </label>
+                                <br>
+                            </div>
+                            
+                        {% endif %}
+
+                    {% endfor %}
+
+
+                    <h3 id="juegos">Juegos</h3>
+
+                    {% for software in softwares %}
+
+                        {% if software.tipo == 4 %}
+
+                            <div class="hardwareItem" id="softwareItem{{ forloop.counter }}">
+                                <label>
+                                    <input type="checkbox" class="softwareCheckbox" name="selected_software" value="{{ software.id }}">{{ software.software }}
+                                </label>
+                                <br>
+                            </div>
+                            
+                        {% endif %}
+
+                    {% endfor %}
+
+                    <h3 id="virt">Virtualización</h3>
+
+                    {% for software in softwares %}
+                        {% if software.tipo == 6 %}
+                            <div class="hardwareItem" id="softwareItem{{ forloop.counter }}">
+                                <label>
+                                    <input type="checkbox" class="softwareCheckbox" name="selected_software" value="{{ software.id }}">{{ software.software }}
+                                </label>
+                                <br>
+                            </div>
+                            
+                        {% endif %}
+
+                    {% endfor %}
+
+
+                    <h3 id="otros">Otros</h3>
+
+                    {% for software in softwares %}
+
+                        {% if software.tipo == 0 %}
+
+                            <div class="hardwareItem" id="softwareItem{{ forloop.counter }}">
+                                <label>
+                                    <input type="checkbox" class="softwareCheckbox" name="selected_software" value="{{ software.id }}">{{ software.software }}
+                                </label>
+                                <br>
+                            </div>
+                            
+                        {% endif %}
+
+                    {% endfor %}
+
+
+            
+                    <!-- insertamos los modelos de procesadores de la BD - - - - - - -->
+                  
+                </div>
                    
                 
             </div>

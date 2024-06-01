@@ -11,9 +11,8 @@ class Command(BaseCommand):
         try:
             with open(file_path, newline='', encoding='utf-8') as csvfile:
                 reader = csv.DictReader(csvfile, delimiter=';')
-                # Imprimir los encabezados para verificar
                 print(f"CSV Headers: {reader.fieldnames}")
-                
+
                 for row in reader:
                     try:
                         Software.objects.create(
@@ -21,7 +20,8 @@ class Command(BaseCommand):
                             cpu_intel=row['CPU Intel'],
                             cpu_amd=row['CPU AMD'],
                             ram=int(row['RAM']),
-                            ssd=int(row['SSD'])
+                            ssd=int(row['SSD']),
+                            tipo=int(row['tipo'])
                         )
                     except KeyError as e:
                         print(f"Missing key in row: {row} - {e}")
@@ -29,5 +29,5 @@ class Command(BaseCommand):
             print(f"File not found: {file_path}")
         except Exception as e:
             print(f"An error occurred: {e}")
-        
+
         self.stdout.write(self.style.SUCCESS('Data loaded successfully'))
