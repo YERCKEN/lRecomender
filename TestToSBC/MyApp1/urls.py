@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from  .vistas import vista_login
 
 #IMPORAMOS VIEWS DE la carpeta vistas
 
@@ -20,6 +21,13 @@ urlpatterns = [
    path('recomendar/', views.recomendar, name='recomendar'),
    
    path('recomendaciones/', views.verRecomendaciones, name='recomendaciones'),
+   
+   
+   #LOGIN DILAN - --  - - --- - - ----- ------ - - - - - - - - - -- 
+   
+   path('login', vista_login.loginPanel, name='login'),
+   path('logout', vista_login.logoutUser, name='logout'),
+   path('register', vista_login.registerUser, name='register')
    
    
 ]

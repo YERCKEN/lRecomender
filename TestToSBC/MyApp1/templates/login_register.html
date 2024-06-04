@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poiret+One&family=Rubik+Mono+One&family=Russo+One&display=swap" rel="stylesheet">
+    
+    <title>LRecomender-Login</title>
+
+    <style>
+        .register-back-img{
+            border-radius: 25px 0 0 25px;
+            position: relative;
+            background-image: url("{% static 'img/2251796.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+    </style>
+</head>
+<body>
+
+
+{% block content %}
+
+{% if page == 'login' %}
+
+<div class="panel-completo">
+
+    <a class="close-buttonv" href="{% url 'home' %}">x</a>
+    
+    <div class="top-bento">
+
+        <div class="contenedor-img">
+            <img src="{% static 'img/3646517.jpg' %}" alt="oficinista" class="oficinista">
+            <div class="overlay">
+                <p class="parr">{{random_mensaje}}</p>
+            </div>
+        </div>
+
+        <div class="contenedor-login">
+
+            <div class="content-login">
+
+                <div class="header-login">
+                    <div class="cont-tit">
+                        <img src="{% static 'img/Logo Lrecomender.png' %}" alt="logo">
+                    </div>
+                </div>
+
+                <h2>Iniciar Sesión</h2>
+            
+                <form action="" method="post" class="form-login" id="register-form">
+
+                    <div class="elementos">
+
+                        {% csrf_token %}
+                
+                        <label for="usuario">Usuario</label>
+                        <input type="text" id="usuario" name="usuario" placeholder="Usuario">
+
+                        <label for="pass">Contraseña</label>
+                        <input type="password" id="pass" name="pass" placeholder="Contraseña">
+                
+                        <button type="submit" name="login">Iniciar Sesión</button>
+
+                    </div>
+
+                </form>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', (event) => {
+                        document.querySelector('#usuario').focus();
+                    });
+                </script>
+
+                <div class="error-login">
+                    {% if error_message %}
+                        <p>{{ error_message }}</p>
+                    {% endif %}
+                </div>
+
+                <p class="text-login">No tienes cuenta?</p>
+
+                <a href="{% url 'register' %}">Registrarse</a>
+
+            </div>
+
+        </div>
+    </div>
+
+<div class="contenedor-mensajes">
+    <h2 class="tipo-mensaje">
+        {% if tipo_mensaje == 'Tip' %}
+        Consejo útil:
+        {% elif tipo_mensaje == 'Info' %}
+        Dato interesante:
+        {% else %}
+        Tipo de mensaje desconocido
+        {% endif %}
+    </h2>
+    <p class="mensaje">{{ contenido_mensaje }}</p>
+</div>
+
+</div>
+
+{% elif page == 'register' %}
+
+<div class="panel-principal">
+
+    <div class="register-back-img">
+        <div class="side-info">
+
+            <div class="panelmensajes">
+
+                <img src="{% static 'img/Logo Lrecomender.png' %}" alt="logo" class="logo">
+
+
+                <div class="text-side">
+                    <h2>UNETE A LA COMUNIDAD DE LRECOMENDER</h2>
+                    <p>Al registrarte y unirte, podrás guardar las recomendaciones que desees. ¿Qué estás esperando?</p>
+                </div>
+
+                <div class="contenedor-mensajesv">
+                    <h2 class="tipo-mensajev">
+                        {% if tipo_mensaje == 'Tip' %}
+                        Consejo útil:
+                        {% elif tipo_mensaje == 'Info' %}
+                        Dato interesante:
+                        {% else %}
+                        Tipo de mensaje desconocido
+                        {% endif %}
+                    </h2>
+                    <p class="mensajev">{{ contenido_mensaje }}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor-register">
+
+        <h2 class="text-rec">Registro de Usuarios</h2>
+
+        <div class="message-container">
+            {% if messages %}
+
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+
+        </div>
+
+        <a class="close-button" href="{% url 'home' %}">x</a>
+
+        <form action="" method="post" id="register-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="center-button">
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+        </form>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                document.querySelector('#register-form input').focus();
+            });
+        </script>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+{% endblock content %}
+
+
+
+
+</body>
+
+</html>
+

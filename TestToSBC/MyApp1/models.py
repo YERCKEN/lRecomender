@@ -42,3 +42,23 @@ class Software(models.Model):
 
     def __str__(self):
         return self.software
+    
+    
+    
+# MODELO DE MENSAJES
+    
+class Message(models.Model):
+
+    TIP = 'Tip'
+    INFO = 'Info'
+
+    MESSAGE_TYPES = [
+        (TIP, 'Tip'),
+        (INFO, 'Info'),
+    ]
+
+    message_type = models.CharField(max_length=4, choices=MESSAGE_TYPES)
+    content = models.TextField()
+
+    def __str__(self):
+        return f'{self.get_message_type_display()}: {self.content[:100]}'
