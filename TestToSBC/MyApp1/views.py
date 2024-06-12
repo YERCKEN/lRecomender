@@ -19,7 +19,7 @@ def about (request):
     personas = [{'name1': 'Dilan Sobenis'}, {'name2': 'Edwar Gonzalez'}, {'name3':'Jeisson Paredes'}]
     return render (request, 'about.html', {'personas': personas})
 
-#RECOMENDACIÓN  DULAN V1=  = == = = == = = = = = = = = = == == = = = == = = = =  = = = == = = = = = == = = = = = == = = =
+#RECOMENDACIÓN  DULAN V1=  = == = = == = = = = = = = = = == == = = = == = = = =  = = = == = = = = = == = = = = 
 
 @csrf_protect
 def recomendar(request):

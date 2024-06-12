@@ -131,3 +131,10 @@
 .btnPerfil:hover {
     transform:  scale(calc(1 + 0.05));
 }
+
+
+.btnLogo {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}

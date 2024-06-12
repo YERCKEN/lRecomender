@@ -1,14 +1,26 @@
 /*GENERAL*/
-.container {
+.container-entornos {
     margin-top: 5rem;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 
 }
 
+
+.contenedorEspeEntornos{
+
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+   
+}
+
 .environment {
-    padding: 20px;
+    
     width: 35%;
+    padding: 20px;
+
  
 }
 
@@ -38,6 +50,12 @@
     cursor: pointer;
 
     transition: background-color 0.3s ease;
+
+
+    
+    /* Chat como hago para que este btn tome el mañao del div mas grande que el? */
+    height: 100%
+
 }
 
 .environment button:hover {
@@ -74,4 +92,90 @@
     margin-top: 0.5rem;
     text-align: justify;
   
+}
+
+
+.contenedorEspeEntornos{
+    display: flex;
+    justify-content: center;
+
+    flex-wrap:  wrap;
+  
+}
+
+
+.entornoRecomendado h1 {
+    text-align: end;
+    font-size: 0.8rem;
+    /*ESTILO DE LETRA*/
+    color: #3885FC;
+    font-style: italic;
+}
+
+
+.preguntas-img img{
+
+    width: 25rem
+}
+
+.preguntas-opciones{
+    margin-top: 10rem;
+    margin-left: 1.5rem;
+}
+    
+.preguntas{
+    
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    padding-left: 15rem;
+    padding-right: 15rem;
+
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+
+.preguntas h1{
+   font-size: 1.5rem;
+
+
+}
+
+.preguntas-inputs{
+
+    margin-top: 2rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+
+ }
+ 
+
+
+/* CONTENEDOR DEL CHECK BOX */
+
+.preguntas-inputs button {
+    width: calc(33.33% - 10px); /* Ajustar para que quepan 3 por fila */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 0.8rem;
+
+}
+
+.preguntas-inputs button:hover{
+    background-color:#3885FC;
+    color: #fff;
+    border: 1px solid #3885FC;
+    transition: 300ms;
+    
+    font-weight: 600;
 }

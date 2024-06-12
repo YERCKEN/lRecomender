@@ -34,8 +34,17 @@
     <!-- HEADER ------------------------------------------------------------------------------>
     <header class="header">
 
-        <!--LOGO-->
-        <img src=" {% static 'img/Logo Lrecomender.svg' %} " alt=""> 
+        <form action=" {% url 'home'%}">
+
+            <button class="btnLogo">
+                <!--LOGO-->
+                <img src=" {% static 'img/Logo Lrecomender.svg' %} " > 
+                
+            </button>
+
+        </form>
+        
+        
 
 
         
@@ -55,6 +64,9 @@
                 <button class="btnPerfil">
                     <img src="{% static 'img/userPerfil.png' %}" alt="">
                 </button>
+                {% if request.user.is_authenticated %}
+                <p>{{request.user}}</p>
+                {% endif %}
 
             </div>
 
@@ -82,6 +94,8 @@
     <script src= "{% static 'js/filtrarSF.js' %}"> </script>
 
     <script src= "{% static 'js/copyBtn.js' %}"> </script>
+    <script src= "{% static 'js/btnTipoUsuario.js' %}"> </script>
+
 
 
 </body>
