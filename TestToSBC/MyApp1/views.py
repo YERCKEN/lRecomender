@@ -10,7 +10,7 @@ from . import utils
 
 
 #HOME  =  = == = = == = = = = = = = = = == == = = = == = = = =
-def home(request):
+def home(request):   
     return render(request, 'home.html') 
 
 #ABOUT =  = == = = == = = = = = = = = = == == = = = == = = = =
