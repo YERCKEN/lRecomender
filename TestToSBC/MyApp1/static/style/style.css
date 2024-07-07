@@ -1,12 +1,11 @@
 .panel-completo{
 
-
     display: flex;
     justify-content: center;
 
     padding-top: 2rem;
     font-weight: 400;
-   flex-wrap: wrap;
+    flex-wrap: wrap;
     /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
 }
 
@@ -23,36 +22,50 @@
 }
 
 .form-control {
+
     width: 100%;
+
     padding: 10px;
-    margin: 5px 0 5px 0;
     display: inline-block;
     border: none;
-    border-bottom: 2px solid #4f94f4;
+    border-bottom: 2px solid #9da6b3;
+
     box-sizing: border-box;
     outline: none;
     caret-color: #006DA4;
     transition: border-color 0.3s;
+
+    margin-bottom: 2rem;
+
+
+    font-size: 1rem;
+
 }
 
 
 .form-control:focus{
-    border-bottom: 2px solid #25ed75;
+    border-bottom: 2px solid #3885FC;
 }
 
 .btn-primary {
-    background-color: #3885FC;
-    color: white;
+    background-color: #fff;
+    color: #3885FC;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    width: 80%;
+    width: 100%;
+
+    font-size: 1rem;
+    border: 2px solid #3885FC   ;
+
 }
 
 .btn-primary:hover {
+    transition: 0.5s;
     background-color: #428cfc;
+    color: white;
 }
 
 .form-group {
@@ -97,18 +110,13 @@
     width: 170px;
 }
 
-
-
-
-
-
-
 .panel-principal{
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    margin-top: 3rem;
+
 }
+
 
 .side-info{
     margin: 0;
@@ -117,11 +125,14 @@
     align-items: center;
     flex-direction: column;
     width: 400px;
-    height: 580px;
-    background-color: rgba(80, 75, 221, 0.8); /* Color de fondo blanco con opacidad */
+    height: 480px;
+    background-color: #3885FC; /* Color de fondo blanco con opacidad */
     padding: 25px;
     border-radius: 25px 0 0 25px;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+
+    background-image: url("../img/2251796.jpg");
+    background-size: cover;
+    
 }
 
 
@@ -135,96 +146,56 @@
     height: 100vh;
     box-sizing: border-box;
     opacity: 1.0;
+
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .contenedor-mensajesv{
-    padding: 20px;
     width: 95%;
 }
 
-.logo{
-    height: 55px;
-    width: 230px;
-    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-    margin-bottom: 40px;
+.contenedor-mensajesv p{
+    font-style: italic;
 }
+
+
+
 
 .tipo-mensajev{
     color: white;
 }
 
 .mensajev{
+
     color: #ffffff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 7px;
-    height: 55px;
-    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+
     text-align: justify;
     justify-content: center;
-    font-size: 16px;
-}
-
-.text-side p{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size:x-large;
-    color: #ffffff;
+  
 }
 
 .text-side h2{
     color: #ffffff;
-    font-family: "Rubik Mono One", monospace;
-    font-size: 20px;
+    font-size:1rem;
+    margin-top: 2rem;
+
 }
 
-.close-button{
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: #333;
-    text-decoration: none;
+.text-side p{
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    font-size:1rem;
+    text-align: start;
+    margin-top: 0.5rem;
+
 }
 
-.close-button:hover{
-    color: #fa7a84;
-}
-
-.close-buttonv{
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: #333;
-    text-decoration: none;
-}
-
-.close-buttonv:hover{
-    color: #fa7a84;
-}
-
-.register-back-img{
-
-    border-radius: 25px 0 0 25px;
-    position: relative;
-    background-image: url("{% static 'img/2251796.jpg' %}");
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 #register-form{
-    width: 85%;
+    width: 90%;
 }
 
 .contenedor-register{
@@ -234,12 +205,28 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 360px;
+    width: 450px;
     min-height: 500px;
     max-height: 580px;
     background-color: white;
     padding: 25px;
     border-radius: 0 25px 25px 0;
     color: #395886;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+
+
+
+}
+
+.contenedor-register h2{
+    width: 90%;
+    text-align: left;
+
+    margin-bottom: 2rem;
+
+
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+
+    color: #000;
 }

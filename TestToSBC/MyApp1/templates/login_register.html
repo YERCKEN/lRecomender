@@ -5,11 +5,11 @@
 
 {% if page == 'login' %}
 
+
+
 <div class="panel-completo">
     
     
-    
-
     <div class="top-bento">
 
         <div class="contenedor-img">
@@ -50,7 +50,9 @@
 
                 <div class="error-login">
                     {% if error_message %}
-                    <p>{{ error_message }}</p>
+
+                        <p>{{ error_message }}</p>
+                        
                     {% endif %}
                 </div>
 
@@ -74,34 +76,27 @@
    
 </div>
 
-
 {% elif page == 'register' %}
 
 <div class="panel-principal">
 
     <div class="register-back-img">
-        <div class="side-info">
 
+        <div class="side-info">
+            
             <div class="panelmensajes">
 
-                <img src="{% static 'img/Logo Lrecomender.png' %}" alt="logo" class="logo">
-
+               
 
                 <div class="text-side">
+
                     <h2>UNETE A LA COMUNIDAD DE LRECOMENDER</h2>
+                    
                     <p>Al registrarte y unirte, podrás guardar las recomendaciones que desees. ¿Qué estás esperando?</p>
+
                 </div>
 
                 <div class="contenedor-mensajesv">
-                    <h2 class="tipo-mensajev">
-                        {% if tipo_mensaje == 'Tip' %}
-                        Consejo útil:
-                        {% elif tipo_mensaje == 'Info' %}
-                        Dato interesante:
-                        {% else %}
-                        Tipo de mensaje desconocido
-                        {% endif %}
-                    </h2>
                     <p class="mensajev">{{ contenido_mensaje }}</p>
                 </div>
 
@@ -111,7 +106,7 @@
 
     <div class="contenedor-register">
 
-        <h2 class="text-rec">Registro de Usuarios</h2>
+        <h2 class="text-rec">SingUp</h2>
 
         <div class="message-container">
             {% if messages %}
@@ -123,11 +118,12 @@
 
         </div>
 
-        <a class="close-button" href="{% url 'home' %}">x</a>
 
         <form action="" method="post" id="register-form">
+
             {% csrf_token %}
             {{ form.as_p }}
+
             <div class="center-button">
                 <button type="submit" class="btn btn-primary">Registrar</button>
             </div>

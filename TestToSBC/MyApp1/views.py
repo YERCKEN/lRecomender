@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 # DEPENDENCIAS RECOMENDACIÓN
-from .models import Software, Laptop
+from .models import Software, Laptop 
 from django.shortcuts import render, redirect
 from .recomenderFolder.recomender import get_recommendations
 from django.views.decorators.csrf import csrf_protect
@@ -14,8 +14,14 @@ from . import utils
 def home(request):   
     return render(request, 'home.html') 
 
-#ABOUT =  = == = = == = = = = = = = = = == == = = = == = = = =
+#PERFIL  =  = == = = == = = = = = = = = = == == = = = == = = = =
+def perfil(request):
+   
+    return render(request, 'perfil.html')
+  
 
+
+#ABOUT =  = == = = == = = = = = = = = = == == = = = == = = = =
 def about (request):
     personas = [{'name1': 'Dilan Sobenis'}, {'name2': 'Edwar Gonzalez'}, {'name3':'Jeisson Paredes'}]
     return render (request, 'about.html', {'personas': personas})

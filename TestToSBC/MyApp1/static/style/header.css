@@ -114,6 +114,9 @@
 }
 
 
+
+/* PERFIL   */
+
 .btnPerfil {
     border-radius: 2rem;
     border: none;
@@ -137,4 +140,30 @@
     border: none;
     background-color: white;
     cursor: pointer;
+}
+
+
+/* NAME DEL PERFIL   */
+
+.header-botones h1 {
+    font-size: 1rem;
+    margin-left: 1rem;
+
+    font-weight: 600;
+    color: #3885FC;
+}
+
+
+/* Estilos para la barra de desplazamiento en webkit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 5px; /* Ancho de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3885FC; /* Color del "pulgar" de la barra */
+    border-radius: px; /* Radio de borde del "pulgar" */
+}
+
+::-webkit-scrollbar-track {
+    background-color:  #eff5fe; /* Color de la pista de la barra */
 }

@@ -1,0 +1,168 @@
+.contenedorPerfil{
+   margin-top: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.profile-container {
+    display: flex;
+    justify-content: start;
+    width: 45%;
+    margin-bottom: 1rem;
+
+
+}
+
+
+.profile-image {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: 0.5rem;
+}
+
+
+.profile-details {
+    display: flex;
+    flex-wrap: wrap;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.profile-details h1{
+    font-size: 1rem;
+}
+
+.profile-details p{
+    font-size: 1rem;
+}
+
+
+.profile-name {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    color: #3885FC;
+    font-weight: bold;
+ 
+}
+
+.profile-username {
+    width: 100%;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    color: #667da2;
+    font-style: italic;
+}
+
+.divider {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    border-color: #d8e5f9;
+
+    width: 60%;
+
+}
+
+.details-container {
+
+  
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    margin-bottom: 2rem;
+}
+
+.personal-details, .account-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+
+.personal-details h3, .account-details h3{
+    width: 80%;
+
+    font-weight:400;
+    font-style: italic;
+}
+
+.details-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    margin-top: 1rem;
+}
+
+.details-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    background-color: #ecf3ff;
+    width: 80%;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+
+}
+
+.details-row:last-child {
+    margin-bottom: 0;
+}
+
+.details-value {
+    color: #3885FC;
+}
+
+.details-highlight {
+    color: #3885FC;
+    font-family:  "Exo 2", sans-serif;
+}
+
+
+
+/* historias--  - -- - ---------------------------------------------- - - */
+
+.historial{
+    width: 45%;
+}
+
+.historial h1{
+    width: 100%;
+    font-size: 1rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+
+}
+
+.btnLogout img {
+    width: 2rem;
+    
+    
+}
+
+
+.btnLogout  {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+   
+}
+
+.profile-container button{
+    background-color: white;
+
+}

@@ -1,0 +1,76 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+{% block content %}
+
+    <div class="contenedorPerfil">
+
+        <div class="profile-container">
+
+            <img class="profile-image" src="{% static 'img/userPerfil.png' %}" alt="Profile Image" />
+    
+            <div class="profile-details">
+
+                <h1 class="profile-name">{{ user.first_name }} {{ user.last_name }}</h1>
+                <p class="profile-username">@{{ user.username }}</p>
+
+            </div>
+
+            <button class="btnLogout">
+                <img src="{% static 'img/logoutBlack.png' %}" alt="">
+            </button>
+
+        </div>
+        
+        <hr class="divider" />
+        
+        <div class="details-container">
+
+            <div class="personal-details">
+
+                <h3>Detalles personales</h3>
+
+                <div class="details-box">
+
+                    <div class="details-row">
+                        <p>Nombre completo</p>
+                        <p class="details-value">{{ user.first_name  }} {{ user.last_name  }}</p>
+                    </div>
+                    <div class="details-row">
+                        <p>Tipo de usuario</p>
+                        <p>Miembro de <strong class="details-highlight">LRecomender</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="account-details">
+
+                <h3>Detalles de cuenta</h3>
+                <div class="details-box">
+                    <div class="details-row">
+                        <p>Correo electrónico</p>
+                        <p class="details-value">{{ user.email }}</p>
+                    </div>
+                    <div class="details-row">
+                        <p>Se unió desde</p>
+                        <p class="details-value">{{ user.date_joined}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider" />
+
+        <!-- HISTORIAL -->
+        <div class="historial">
+
+            <h1>Historial de recomendacione</h1>
+
+        </div>
+
+    </div>
+   
+
+
+
+{% endblock %}

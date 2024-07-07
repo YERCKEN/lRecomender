@@ -15,6 +15,8 @@
     <link rel="stylesheet" href=" {%  static 'style\noExperto.css' %} ">
 
     <link rel="stylesheet" href=" {%  static 'style\header.css' %} ">
+    <link rel="stylesheet" href=" {%  static 'style\perfil.css' %} ">
+
     
     <link rel="stylesheet" href=" {%  static 'style\recomendacion.css' %} ">
 
@@ -49,27 +51,27 @@
        <div class="header-opciones">
 
             <ul><a href="{% url 'home' %}">Inicio</a></ul>
-            <ul> <a href="{% url 'entornos' %}">Entornos</a></ul>
+            <ul><a href="{% url 'entornos' %}">Entornos</a></ul>
 
      
             <!--BOTONES-->
             <div class="header-botones">
                 
-
-               
-
-                
-                
-                
-
                 <!--info login-->
                 {% if request.user.is_authenticated %}
 
-                <button class="btnPerfil">
-                    <img src="{% static 'img/userPerfil.png' %}" alt="">
-                </button>
+                <form action="{% url 'perfil' %}">
 
-                <p>{{request.user}}</p>
+                    <button class="btnPerfil">
+
+                        <img src="{% static 'img/userPerfil.png' %}" alt="">
+    
+                    </button>
+                    
+                </form>
+                
+
+                <h1>{{request.user}}</h1>
 
                 {% else%}
 

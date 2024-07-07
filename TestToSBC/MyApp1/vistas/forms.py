@@ -1,18 +1,18 @@
-
 from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
 class RegisterForm(forms.ModelForm):
-
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-    confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    first_name = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'nombre'}))
+    last_name = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'apellido'}))
+    username = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'usuario'}))
+    email = forms.EmailField(label='', widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'correo'}))
+    password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'contraseña'}))
+    confirm_password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'confirmar contraseña'}))
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password']
+        fields = ['first_name', 'last_name', 'username', 'email', 'password']
 
     def clean(self):
         cleaned_data = super().clean()

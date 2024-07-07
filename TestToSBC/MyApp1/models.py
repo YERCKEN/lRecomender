@@ -62,6 +62,7 @@ class Message(models.Model):
 
     def __str__(self):
         return f'{self.get_message_type_display()}: {self.content[:100]}'
+    
 #MODELO DEL HISTORIAL=======================================================
 """
 class Historial(models.Model):
