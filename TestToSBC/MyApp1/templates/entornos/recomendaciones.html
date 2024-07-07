@@ -1,85 +1,70 @@
 {% extends '../layouts/base.html' %}
-
 {% load static %}
 {% block content%}
 
 {% if laptops %}
-    
-
     <div class="recomendaciones">
-     
         <!---DIV OPCIÓN #1 ======================================================================-->
         <div class="laptop uno">
-        {% if laptops %}
-            <div class="laptop-pcR">
-                <h1>#1</h1>
-            </div>
-
-            <p>{{ laptops.0.brand }}</p>
-
-            <div class="laptop-modelo-copy">
-
-                <h1 id="modeloPC1">{{ laptops.0.model }}</h1>
-
-                <div class="laptop-modelo-copy-btn">
-                    <button id="btnGuardar">
-                        <img src="{% static 'img/save.png' %}" alt="">
-                    </button>
-             
-                    <button id="copyButton1">
-                        <img src="{% static 'img/copy.png' %}" alt="">
-                    </button>
+            {% if laptops %}
+                <div class="laptop-pcR">
+                    <h1>#1</h1>
                 </div>
-                
-            </div>
-            
-            <!--CPU =   = == = = == ========= == = = = = = = = = = = = = =-->
-            <div class="recomendaciones-item">
-
-                <img src="{% static 'img/iconoCPU.png' %}" alt="">
-                <h3>CPU:</h3>
-                
-                <p id="pcpu">{{ laptops.0.processor_brand }}, {{ laptops.0.processor_tier }}, {{ laptops.0.num_cores }} Nucleos, {{ laptops.0.num_threads }} hilos </p>
-
-            </div>
-
-        
-            <!--RAM =   = == = = == ========= == = = = = = = = = = = = = =-->
-
-            <div class="recomendaciones-item">
-                <img src="{% static 'img/iconoRam2.png' %}" alt="">
-                <h3>RAM (GB):</h3>
-                
-                <p id="pRam">{{ laptops.0.ram_memory }} GB</p>
-
-            </div>
-
-            <!--ALMACENAMIENTO=   = == = = == ========= == = = = = = = = = = = = = =-->
-            <div class="recomendaciones-item">
-                <img src="{% static 'img/iconoDisk.png' %}" alt="">
-                <h3>Storage #1</h3>
-
-                <p id="pDisk1">{{ laptops.0.primary_storage_type }} {{ laptops.0.primary_storage_capacity }} GB</p>
-            </div>
-
-            <!--ALMACENAMIENTO=2   = == = = == ========= == = = = = = = = = = = = = =-->
-            <div class="recomendaciones-item">
-                <img src="{% static 'img/iconoDisk.png' %}" alt="">
-                <h3>Storage #2</h3>
-
-                <p id="pDisk2">{{ laptops.0.secondary_storage_type }} {{ laptops.0.secondary_storage_capacity }} GB</p>
-            </div>
-
-
-            <!--GPU=   = == = = == ========= == = = = = = = = = = = = = =-->
-            <div class="recomendaciones-item">
-                <img src="{% static 'img/iconoGPU.png' %}" alt="">
-                <h3>GPU:</h3>
-
-                <p id="pGpu">{{ laptops.0.gpu_brand }} {{ laptops.0.gpu_type }}</p>
-            </div>
-
-        {% endif %}
+                <p>{{ laptops.0.brand }}</p>
+                <div class="laptop-modelo-copy">
+                    <h1 id="modeloPC1">{{ laptops.0.model }}</h1>
+                    <div class="laptop-modelo-copy-btn">
+                        <form method="post" action="{% url 'guardar_recomendacion' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="brand" value="{{ laptops.0.brand }}">
+                            <input type="hidden" name="model" value="{{ laptops.0.model }}">
+                            <input type="hidden" name="processor_brand" value="{{ laptops.0.processor_brand }}">
+                            <input type="hidden" name="processor_tier" value="{{ laptops.0.processor_tier }}">
+                            <input type="hidden" name="num_cores" value="{{ laptops.0.num_cores }}">
+                            <input type="hidden" name="num_threads" value="{{ laptops.0.num_threads }}">
+                            <input type="hidden" name="ram_memory" value="{{ laptops.0.ram_memory }}">
+                            <input type="hidden" name="primary_storage_type" value="{{ laptops.0.primary_storage_type }}">
+                            <input type="hidden" name="primary_storage_capacity" value="{{ laptops.0.primary_storage_capacity }}">
+                            <input type="hidden" name="secondary_storage_type" value="{{ laptops.0.secondary_storage_type }}">
+                            <input type="hidden" name="secondary_storage_capacity" value="{{ laptops.0.secondary_storage_capacity }}">
+                            <input type="hidden" name="gpu_brand" value="{{ laptops.0.gpu_brand }}">
+                            <input type="hidden" name="gpu_type" value="{{ laptops.0.gpu_type }}">
+                            <button type="submit" id="btnGuardar1">
+                                <img src="{% static 'img/save.png' %}" alt="">
+                            </button>
+                        </form>
+                        <button id="copyButton1">
+                            <img src="{% static 'img/copy.png' %}" alt="">
+                        </button>
+                    </div>
+                </div>
+                <!-- Details for CPU, RAM, Storage, GPU -->
+                <div class="recomendaciones-item">
+                    <img src="{% static 'img/iconoCPU.png' %}" alt="">
+                    <h3>CPU:</h3>
+                    <p id="pcpu">{{ laptops.0.processor_brand }}, {{ laptops.0.processor_tier }}, {{ laptops.0.num_cores }} Nucleos, {{ laptops.0.num_threads }} hilos</p>
+                </div>
+                <div class="recomendaciones-item">
+                    <img src="{% static 'img/iconoRam2.png' %}" alt="">
+                    <h3>RAM (GB):</h3>
+                    <p id="pRam">{{ laptops.0.ram_memory }} GB</p>
+                </div>
+                <div class="recomendaciones-item">
+                    <img src="{% static 'img/iconoDisk.png' %}" alt="">
+                    <h3>Storage #1</h3>
+                    <p id="pDisk1">{{ laptops.0.primary_storage_type }} {{ laptops.0.primary_storage_capacity }} GB</p>
+                </div>
+                <div class="recomendaciones-item">
+                    <img src="{% static 'img/iconoDisk.png' %}" alt="">
+                    <h3>Storage #2</h3>
+                    <p id="pDisk2">{{ laptops.0.secondary_storage_type }} {{ laptops.0.secondary_storage_capacity }} GB</p>
+                </div>
+                <div class="recomendaciones-item">
+                    <img src="{% static 'img/iconoGPU.png' %}" alt="">
+                    <h3>GPU:</h3>
+                    <p id="pGpu">{{ laptops.0.gpu_brand }} {{ laptops.0.gpu_type }}</p>
+                </div>
+            {% endif %}
         </div>
 
         <!---DIV OPCIÓN #2 ======================================================================-->
@@ -88,175 +73,137 @@
                 <div class="laptop-pcR">
                     <h1>#2</h1>
                 </div>
-    
                 <p>{{ laptops.1.brand }}</p>
-    
                 <div class="laptop-modelo-copy">
-    
                     <h1 id="modeloPC2">{{ laptops.1.model }}</h1>
-    
                     <div class="laptop-modelo-copy-btn">
-                        <button id="btnGuardar2">
-                            <img src="{% static 'img/save.png' %}" alt="">
-                        </button>
-                 
+                        <form method="post" action="{% url 'guardar_recomendacion' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="brand" value="{{ laptops.1.brand }}">
+                            <input type="hidden" name="model" value="{{ laptops.1.model }}">
+                            <input type="hidden" name="processor_brand" value="{{ laptops.1.processor_brand }}">
+                            <input type="hidden" name="processor_tier" value="{{ laptops.1.processor_tier }}">
+                            <input type="hidden" name="num_cores" value="{{ laptops.1.num_cores }}">
+                            <input type="hidden" name="num_threads" value="{{ laptops.1.num_threads }}">
+                            <input type="hidden" name="ram_memory" value="{{ laptops.1.ram_memory }}">
+                            <input type="hidden" name="primary_storage_type" value="{{ laptops.1.primary_storage_type }}">
+                            <input type="hidden" name="primary_storage_capacity" value="{{ laptops.1.primary_storage_capacity }}">
+                            <input type="hidden" name="secondary_storage_type" value="{{ laptops.1.secondary_storage_type }}">
+                            <input type="hidden" name="secondary_storage_capacity" value="{{ laptops.1.secondary_storage_capacity }}">
+                            <input type="hidden" name="gpu_brand" value="{{ laptops.1.gpu_brand }}">
+                            <input type="hidden" name="gpu_type" value="{{ laptops.1.gpu_type }}">
+                            <button type="submit" id="btnGuardar2">
+                                <img src="{% static 'img/save.png' %}" alt="">
+                            </button>
+                        </form>
                         <button id="copyButton2">
                             <img src="{% static 'img/copy.png' %}" alt="">
                         </button>
                     </div>
-                    
                 </div>
-                
-                <!--CPU =   = == = = == ========= == = = = = = = = = = = = = =-->
+                <!-- Details for CPU, RAM, Storage, GPU -->
                 <div class="recomendaciones-item">
-    
                     <img src="{% static 'img/iconoCPU.png' %}" alt="">
                     <h3>CPU:</h3>
-                    
-                    <p id="pcpu">{{ laptops.1.processor_brand }}, {{ laptops.1.processor_tier }}, {{ laptops.1.num_cores }} Nucleos, {{ laptops.1.num_threads }} hilos </p>
-    
+                    <p id="pcpu">{{ laptops.1.processor_brand }}, {{ laptops.1.processor_tier }}, {{ laptops.1.num_cores }} Nucleos, {{ laptops.1.num_threads }} hilos</p>
                 </div>
-    
-            
-                <!--RAM =   = == = = == ========= == = = = = = = = = = = = = =-->
-    
                 <div class="recomendaciones-item">
                     <img src="{% static 'img/iconoRam2.png' %}" alt="">
                     <h3>RAM (GB):</h3>
-                    
                     <p id="pRam">{{ laptops.1.ram_memory }} GB</p>
-    
                 </div>
-    
-                <!--ALMACENAMIENTO=   = == = = == ========= == = = = = = = = = = = = = =-->
                 <div class="recomendaciones-item">
                     <img src="{% static 'img/iconoDisk.png' %}" alt="">
                     <h3>Storage #1</h3>
-    
                     <p id="pDisk1">{{ laptops.1.primary_storage_type }} {{ laptops.1.primary_storage_capacity }} GB</p>
                 </div>
-    
-                <!--ALMACENAMIENTO=2   = == = = == ========= == = = = = = = = = = = = = =-->
                 <div class="recomendaciones-item">
                     <img src="{% static 'img/iconoDisk.png' %}" alt="">
                     <h3>Storage #2</h3>
-    
                     <p id="pDisk2">{{ laptops.1.secondary_storage_type }} {{ laptops.1.secondary_storage_capacity }} GB</p>
                 </div>
-    
-    
-                <!--GPU=   = == = = == ========= == = = = = = = = = = = = = =-->
                 <div class="recomendaciones-item">
                     <img src="{% static 'img/iconoGPU.png' %}" alt="">
                     <h3>GPU:</h3>
-    
                     <p id="pGpu">{{ laptops.1.gpu_brand }} {{ laptops.1.gpu_type }}</p>
                 </div>
-    
             {% endif %}
         </div>
 
-         <!---DIV OPCIÓN #3 ======================================================================-->
-         <div class="laptop tres">
+        <!---DIV OPCIÓN #3 ======================================================================-->
+        <div class="laptop tres">
             {% if laptops %}
                 <div class="laptop-pcR">
                     <h1>#3</h1>
                 </div>
-    
                 <p>{{ laptops.2.brand }}</p>
-    
                 <div class="laptop-modelo-copy">
-    
                     <h1 id="modeloPC3">{{ laptops.2.model }}</h1>
-    
                     <div class="laptop-modelo-copy-btn">
-                        <button id="btnGuardar3">
-                            <img src="{% static 'img/save.png' %}" alt="">
-                        </button>
-                 
+                        <form method="post" action="{% url 'guardar_recomendacion' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="brand" value="{{ laptops.2.brand }}">
+                            <input type="hidden" name="model" value="{{ laptops.2.model }}">
+                            <input type="hidden" name="processor_brand" value="{{ laptops.2.processor_brand }}">
+                            <input type="hidden" name="processor_tier" value="{{ laptops.2.processor_tier }}">
+                            <input type="hidden" name="num_cores" value="{{ laptops.2.num_cores }}">
+                            <input type="hidden" name="num_threads" value="{{ laptops.2.num_threads }}">
+                            <input type="hidden" name="ram_memory" value="{{ laptops.2.ram_memory }}">
+                            <input type="hidden" name="primary_storage_type" value="{{ laptops.2.primary_storage_type }}">
+                            <input type="hidden" name="primary_storage_capacity" value="{{ laptops.2.primary_storage_capacity }}">
+                            <input type="hidden" name="secondary_storage_type" value="{{ laptops.2.secondary_storage_type }}">
+                            <input type="hidden" name="secondary_storage_capacity" value="{{ laptops.2.secondary_storage_capacity }}">
+                            <input type="hidden" name="gpu_brand" value="{{ laptops.2.gpu_brand }}">
+                            <input type="hidden" name="gpu_type" value="{{ laptops.2.gpu_type }}">
+                            <button type="submit" id="btnGuardar3">
+                                <img src="{% static 'img/save.png' %}" alt="">
+                            </button>
+                        </form>
                         <button id="copyButton3">
                             <img src="{% static 'img/copy.png' %}" alt="">
                         </button>
                     </div>
-                    
                 </div>
-                
-                <!--CPU =   = == = = == ========= == = = = = = = = = = = = = =-->
+                <!-- Details for CPU, RAM, Storage, GPU -->
                 <div class="recomendaciones-item">
-    
                     <img src="{% static 'img/iconoCPU.png' %}" alt="">
                     <h3>CPU:</h3>
-                    
-                    <p id="pcpu">{{ laptops.2.processor_brand }}, {{ laptops.2.processor_tier }}, {{ laptops.2.num_cores }} Nucleos, {{ laptops.2.num_threads }} hilos </p>
-    
+                    <p id="pcpu">{{ laptops.2.processor_brand }}, {{ laptops.2.processor_tier }}, {{ laptops.2.num_cores }} Nucleos, {{ laptops.2.num_threads }} hilos</p>
                 </div>
-    
-            
-                <!--RAM =   = == = = == ========= == = = = = = = = = = = = = =-->
-    
                 <div class="recomendaciones-item">
                     <img src="{% static 'img/iconoRam2.png' %}" alt="">
                     <h3>RAM (GB):</h3>
-                    
                     <p id="pRam">{{ laptops.2.ram_memory }} GB</p>
-    
                 </div>
-    
-                <!--ALMACENAMIENTO=   = == = = == ========= == = = = = = = = = = = = = =-->
                 <div class="recomendaciones-item">
                     <img src="{% static 'img/iconoDisk.png' %}" alt="">
                     <h3>Storage #1</h3>
-    
                     <p id="pDisk1">{{ laptops.2.primary_storage_type }} {{ laptops.2.primary_storage_capacity }} GB</p>
                 </div>
-    
-                <!--ALMACENAMIENTO=2   = == = = == ========= == = = = = = = = = = = = = =-->
                 <div class="recomendaciones-item">
                     <img src="{% static 'img/iconoDisk.png' %}" alt="">
                     <h3>Storage #2</h3>
-    
                     <p id="pDisk2">{{ laptops.2.secondary_storage_type }} {{ laptops.2.secondary_storage_capacity }} GB</p>
                 </div>
-    
-    
-                <!--GPU=   = == = = == ========= == = = = = = = = = = = = = =-->
                 <div class="recomendaciones-item">
                     <img src="{% static 'img/iconoGPU.png' %}" alt="">
                     <h3>GPU:</h3>
-    
                     <p id="pGpu">{{ laptops.2.gpu_brand }} {{ laptops.2.gpu_type }}</p>
                 </div>
-    
             {% endif %}
         </div>
-  
-        
     </div>
-
-
     <h2>Laptops Recomendadas</h2>
     <ul>
-        {% for laptops in laptops %}
-
-        <li>{{ laptops }}</li>
-
+        {% for laptop in laptops %}
+            <li>{{ laptop }}</li>
         {% endfor %}
     </ul>
-
 {% else %}
-
     <div class="idk">
         <img src="{% static 'img/idk.jpg' %}" alt="">
-    
         <p>Lo siento jefe, nuestra base de datos no cuenta con una PC que cumpla con las especificaciones ingresadas.</p>
-      <!--   <p>Buscar este PC es como buscarte en el corazón de <b>Querima</b>, simplemente no existes, T_T</p> -->
         <a href="{% url 'entornos' %}"> ← Volver a intentar</a>
-
     </div>
-   
-
 {% endif %}
-    
-
-
 {% endblock %}

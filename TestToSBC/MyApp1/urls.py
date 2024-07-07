@@ -23,12 +23,13 @@ urlpatterns = [
    
    path('recomendaciones/', views.verRecomendaciones, name='recomendaciones'),
    
+   path('guardar_recomendacion/', views.guardar_recomendacion, name='guardar_recomendacion'),
    
    #LOGIN DILAN - --  - - --- - - ----- ------ - - - - - - - - - -- 
    
    path('login', vista_login.loginPanel, name='login'),
    path('logout', vista_login.logoutUser, name='logout'),
-   path('register', vista_login.registerUser, name='register')
+   path('register', vista_login.registerUser, name='register'),
    
    
 ]
