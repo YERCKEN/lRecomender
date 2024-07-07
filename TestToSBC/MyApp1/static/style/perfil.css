@@ -8,7 +8,7 @@
 }
 .profile-container {
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     width: 45%;
     margin-bottom: 1rem;
 
@@ -44,6 +44,9 @@
     margin-left: 1rem;
     color: #3885FC;
     font-weight: bold;
+
+
+    width: 100%;
  
 }
 
@@ -159,10 +162,25 @@
     border-radius: 20px;
     border: none;
     cursor: pointer;
-   
+    background-image: url("../img/logoutBlack.png");
+    background-size: cover;
+}
+
+
+.btnLogout:hover {
+
+    background-image: url("../img/logoutBlue.png");
+    transform: scale(calc(1 + 0.1));
+
 }
 
 .profile-container button{
     background-color: white;
 
+}
+
+
+.imgNameProfile{
+    display: flex;
+    
 }

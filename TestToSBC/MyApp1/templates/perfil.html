@@ -7,21 +7,24 @@
 
         <div class="profile-container">
 
-            <img class="profile-image" src="{% static 'img/userPerfil.png' %}" alt="Profile Image" />
+            <div class="imgNameProfile">
+                
+                <img class="profile-image" src="{% static 'img/userPerfil.png' %}" alt="Profile Image" />
+        
+                <div class="profile-details">
     
-            <div class="profile-details">
-
-                <h1 class="profile-name">{{ user.first_name }} {{ user.last_name }}</h1>
-                <p class="profile-username">@{{ user.username }}</p>
-
+                    <h1 class="profile-name">{{ user.first_name }} {{ user.last_name }}</h1>
+                    <p class="profile-username">@{{ user.username }}</p>
+    
+                </div>
             </div>
 
             <form action="{% url 'logout' %}">
 
                 <button class="btnLogout">
-                    <img src="{% static 'img/logoutBlack.png' %}" alt="">
+                    <!-- <img src="{% static 'img/logoutBlack.png' %}" alt=""> -->
                 </button>
-                
+
             </form>
 
             
