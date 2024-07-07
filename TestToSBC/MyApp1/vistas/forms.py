@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
 class RegisterForm(forms.ModelForm):
-    first_name = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'nombre'}))
-    last_name = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'apellido'}))
+    first_name = forms.CharField(label='', widget=forms.TextInput(attrs={'id':'juntos','class': 'form-control', 'placeholder': 'nombre'}))
+    last_name = forms.CharField(label='', widget=forms.TextInput(attrs={'id':'juntos', 'class': 'form-control', 'placeholder': 'apellido'}))
     username = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'usuario'}))
     email = forms.EmailField(label='', widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'correo'}))
     password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'contraseña'}))

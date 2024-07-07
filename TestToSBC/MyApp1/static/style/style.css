@@ -19,6 +19,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .form-control {
@@ -125,20 +126,19 @@
     align-items: center;
     flex-direction: column;
     width: 400px;
-    height: 480px;
+    height: 510px;
     background-color: #3885FC; /* Color de fondo blanco con opacidad */
     padding: 25px;
     border-radius: 25px 0 0 25px;
 
     background-image: url("../img/2251796.jpg");
     background-size: cover;
+    background-position: center;
     
 }
 
 
 .panelmensajes{
-    
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -146,7 +146,6 @@
     height: 100vh;
     box-sizing: border-box;
     opacity: 1.0;
-
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
@@ -158,8 +157,6 @@
 .contenedor-mensajesv p{
     font-style: italic;
 }
-
-
 
 
 .tipo-mensajev{
@@ -229,4 +226,16 @@
     font-size: 1.5rem;
 
     color: #000;
+}
+
+
+#juntos{
+    width: 49%;
+}
+
+#nombre-apellido{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
 }
