@@ -16,10 +16,15 @@
 
             </div>
 
-            <form action="{% url '' %}"></form>
-            <button class="btnLogout">
-                <img src="{% static 'img/logoutBlack.png' %}" alt="">
-            </button>
+            <form action="{% url 'logout' %}">
+
+                <button class="btnLogout">
+                    <img src="{% static 'img/logoutBlack.png' %}" alt="">
+                </button>
+                
+            </form>
+
+            
 
         </div>
         
