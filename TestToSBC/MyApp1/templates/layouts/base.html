@@ -18,10 +18,10 @@
     
     <link rel="stylesheet" href=" {%  static 'style\recomendacion.css' %} ">
 
+    <!-- ESTILO LOGIN Y REGISTRO -->
+    <link rel="stylesheet" href=" {%  static 'style\login.css' %} ">
 
-
-
-
+    <link rel="stylesheet" href=" {%  static 'style\style.css' %} ">
 
     <!-- FONTS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,10 +44,7 @@
 
         </form>
         
-        
 
-
-        
        <!--lISTA-->
        <div class="header-opciones">
 
@@ -57,15 +54,60 @@
      
             <!--BOTONES-->
             <div class="header-botones">
-                <!--
-                <button class="btnLogin">Login</button>  
-                <button class="btnRegistro">Sign Up</button>
-                    -->
+                
+
+               
+
+                
+                
+                
+
+                <!--info login-->
+                {% if request.user.is_authenticated %}
+
                 <button class="btnPerfil">
                     <img src="{% static 'img/userPerfil.png' %}" alt="">
                 </button>
-                {% if request.user.is_authenticated %}
+
                 <p>{{request.user}}</p>
+
+                {% else%}
+
+                    {% if page == 'login' %}
+                        
+                            <!--REDIRECCIONAMOS REGISTRO-->
+                        <form action='{% url "register" %}'>
+                            
+                            <button class="btnRegistro">Sign Up</button>
+                        </form>
+
+                    {% elif page == 'register' %}
+                            <!--REDIRECCIONAMOS LOGIN-->
+                            <form action="{% url 'login' %}">
+
+                                <button class="btnLogin">Login</button>  
+    
+                            </form>
+
+                    {% else %}
+
+                        <form action="{% url 'login' %}">
+
+                            <button class="btnLogin">Login</button>  
+
+                        </form>
+
+                        <form action='{% url "register" %}'>
+                            
+                            <button class="btnRegistro">Sign Up</button>
+                        </form>
+                        
+                    {% endif %}
+
+                   
+                   
+
+
                 {% endif %}
 
             </div>

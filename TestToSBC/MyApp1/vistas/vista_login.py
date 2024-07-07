@@ -6,9 +6,11 @@ from django.contrib import messages
 from ..models import Message
 import random
 
+
 def loginPanel(request):
 
     mensajes_login = [
+        
         "¡Esperamos que tengas un día productivo!",
         "¡Es genial verte de nuevo!",
         "¿Listo para algunas recomendaciones nuevas?",
@@ -19,6 +21,7 @@ def loginPanel(request):
         "¡Gracias por regresar, tus recomendaciones te esperan!",
         "¡Estamos felices de verte nuevamente!",
         "¡Tienes muchas cosas geniales esperándote!"
+        
     ]
 
 

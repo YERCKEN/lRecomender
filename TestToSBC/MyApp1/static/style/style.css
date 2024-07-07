@@ -1,43 +1,20 @@
-.rubik-mono-one-regular {
-    font-family: "Rubik Mono One", monospace;
+.panel-completo{
+
+
+    display: flex;
+    justify-content: center;
+
+    padding-top: 2rem;
     font-weight: 400;
-    font-style: normal;
-  }
-
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
+   flex-wrap: wrap;
+    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
 }
 
-
-.contenedor-register{
-    position: relative;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 360px;
-    min-height: 500px;
-    max-height: 580px;
-    background-color: white;
-    padding: 25px;
-    border-radius: 0 25px 25px 0;
-    color: #395886;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
-}
 
 .text-rec{
     text-align: center;
 }
 
-#register-form{
-    width: 85%;
-}
 
 #register-form .center-button{
     display: flex;
@@ -93,169 +70,20 @@ body{
     padding: 5px;
 }
 
-.top-bento{
-    width: 830px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
 
-.oficinista{
-    display: block;
-    width: 100%;
-    height: auto;
-    opacity: 0.7;
-}
 
-.overlay{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #3885FC;
-    overflow: hidden;
-    width: 100%;
-    height: 0;
-    transition: .5s ease;
-    border-radius: 7px;
-    opacity: 0.8;
-}
 
 .contenedor-img:hover .overlay{
     height: 100%;
 }
 
-.overlay .parr {
-    white-space: normal;
-    word-wrap: break-word; 
-    color: white;
-    font-size: 20px;
-    position: absolute;
-    overflow: visible;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-}
 
-.contenedor-img{
-    position: relative;
-    width: 400px;
-    height: 520px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #3885FC;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
-    border-radius: 10px 0 0 10px;
-}
 
 .contenedor-img h2{
     color: #3885FC;
 }
 
 
-
-
-
-
-
-
-.contenedor-login{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #ffffff;
-    width: 350px;
-    height: 540px;
-    box-sizing: border-box;
-    border-radius: 12px;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
-}
-
-.content-login{
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-}
-
-.contenedor-login a{
-    margin-bottom: 20px;
-}
-
-
-.elementos label{
-    margin-bottom: 5px;
-    text-align: start;
-}
-
-.elementos input{
-    border: none;
-    padding: 10px;
-    border-bottom: 2px solid #9da6b3;
-    margin: 5px 0 5px 0;
-    width: 100%;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-    outline: none;
-}
-
-
-.elementos button{
-    width: 100%;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    box-sizing: border-box;
-    background-color: #3885FC;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.elementos button:hover {
-    background-color: #428cfc;
-}
-
-
-.form-login{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    align-content: center;
-    margin-top: 15px;
-    box-sizing: border-box;
-    width: 90%;
-}
-
-.form-login input{
-    caret-color: #428cfc;
-}
-
-.elementos{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 90%;
-}
-
-.header-login{
-    padding: 1px;
-    border-radius: 11px 11px 0 0;
-    background-color: #3885FC;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-}
 
 .cont-tit{
     display: flex;
@@ -269,67 +97,11 @@ body{
     width: 170px;
 }
 
-.content-login a {
-    text-decoration: none;
-    color: #d9e4f5;
-    padding: 5px;
-    background-color: #2eb07a;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
-
-.error-login{
-    color: black;
-    list-style-type: none;
-    margin-top: 10px;
-    background-color: #FFDDDF;
-    border: 1px solid #FEA6AD;
-    border-radius: 3px;
-    padding: 0px 5px 0 5px;
-}
-
-.error-login p{
-    margin: 0;
-    padding: 5px;
-}
-
-.text-login{
-    margin-top: 15px;
-}
 
 
-.panel-completo{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
 
- .contenedor-mensajes{
-    margin-top: 5px;
-    padding: 20px;
-    border-radius: 10px;
-    width: 790px;
-    height: auto;
-}
 
-.tipo-mensaje{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin-top: 7px;
-    padding: 5px;
-    border-radius: 5px;
-} 
 
-.mensaje{
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 7px;
-}
 
 .panel-principal{
     display: flex;
@@ -353,9 +125,9 @@ body{
 }
 
 
-
-
 .panelmensajes{
+    
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -364,8 +136,6 @@ body{
     box-sizing: border-box;
     opacity: 1.0;
 }
-
-
 
 .contenedor-mensajesv{
     padding: 20px;
@@ -438,4 +208,38 @@ body{
 
 .close-buttonv:hover{
     color: #fa7a84;
+}
+
+.register-back-img{
+
+    border-radius: 25px 0 0 25px;
+    position: relative;
+    background-image: url("{% static 'img/2251796.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#register-form{
+    width: 85%;
+}
+
+.contenedor-register{
+    position: relative;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 360px;
+    min-height: 500px;
+    max-height: 580px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 0 25px 25px 0;
+    color: #395886;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
 }
