@@ -62,3 +62,19 @@ class Message(models.Model):
 
     def __str__(self):
         return f'{self.get_message_type_display()}: {self.content[:100]}'
+#MODELO DEL HISTORIAL=======================================================
+class Historial(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    laptop_model = models.CharField(max_length=255)
+    processor_brand = models.CharField(max_length=255)
+    processor_tier = models.CharField(max_length=255)
+    num_cores = models.IntegerField()
+    num_threads = models.IntegerField()
+    ram_memory = models.IntegerField()
+    primary_storage_type = models.CharField(max_length=255)
+    primary_storage_capacity = models.IntegerField()
+    secondary_storage_type = models.CharField(max_length=255, null=True, blank=True)
+    secondary_storage_capacity = models.IntegerField(null=True, blank=True)
+    gpu_brand = models.CharField(max_length=255)
+    gpu_type = models.CharField(max_length=255)
+    date_saved = models.DateTimeField(auto_now_add=True)

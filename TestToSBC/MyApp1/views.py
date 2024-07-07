@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 # DEPENDENCIAS RECOMENDACIÓN
-from .models import Software
+from .models import Software, Historial, Laptop
 from django.shortcuts import render, redirect
 from .recomenderFolder.recomender import get_recommendations
 from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth.decorators import login_required
 
 # importo el archivo utils para llamar las funciones que tengo en el
 from . import utils
@@ -108,10 +109,13 @@ def entornoNoExperto(request):
         
         # CALCULAR MEDIA DE LAS ESPECIFICACIONES
         max_specs = utils.calculate_max_specs(selected_software)
+
+        # OBTENER EL PROCESSOR_TIER CON MÁS NÚCLEOS
+        processor_tier = utils.obtener_processor_tier_con_mayor_num_cores(max_specs['cpu_intel'], max_specs['cpu_amd'])
         
         # PREPARAMOS DICCIONARIO PARA ENVIARLO A LA FUNCIÓN PARA OBTENER RECOMENDACIONES
         filters = {
-            'processor_tier': max_specs['cpu_intel'] if max_specs['cpu_intel'] else max_specs['cpu_amd'],
+            'processor_tier': processor_tier,
             'ram_memory': max_specs['ram'],
             'primary_storage_capacity': max_specs['ssd']
         }
@@ -152,3 +156,25 @@ def verRecomendaciones(request):
     return render(request, 'entornos/recomendaciones.html', {
         'laptops': recommended_laptops
     })
+#VER HISTORIAL======================================
+@login_required
+def guardar_recomendacion(request, laptop_id):
+    laptop = get_object_or_404(Laptop, id=laptop_id)
+    
+    Historial.objects.create(
+        user=request.user,
+        laptop_model=laptop.model,
+        processor_brand=laptop.processor_brand,
+        processor_tier=laptop.processor_tier,
+        num_cores=laptop.num_cores,
+        num_threads=laptop.num_threads,
+        ram_memory=laptop.ram_memory,
+        primary_storage_type=laptop.primary_storage_type,
+        primary_storage_capacity=laptop.primary_storage_capacity,
+        secondary_storage_type=laptop.secondary_storage_type,
+        secondary_storage_capacity=laptop.secondary_storage_capacity,
+        gpu_brand=laptop.gpu_brand,
+        gpu_type=laptop.gpu_type
+    )
+    
+    return redirect('verRecomendaciones')  # Redirige a la página de recomendaciones después de guardar

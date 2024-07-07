@@ -18,7 +18,7 @@ PATH DEL ARCHIVO
 MyApp1/management/commands/import_data2.py
 
 
-**comando** *manage.py import_data2*
+**comando** *python manage.py import_data2*
 
 
 # BD
