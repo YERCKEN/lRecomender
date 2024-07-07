@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 # DEPENDENCIAS RECOMENDACIÓN
-from .models import Software, Laptop
+from .models import Software, Historial, Laptop
 from django.shortcuts import render, redirect
 from .recomenderFolder.recomender import get_recommendations
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from django.contrib import messages
 
 # importo el archivo utils para llamar las funciones que tengo en el
 from . import utils
@@ -157,26 +159,53 @@ def verRecomendaciones(request):
         'laptops': recommended_laptops
     })
 #VER HISTORIAL======================================
-"""
 @login_required
-def guardar_recomendacion(request, laptop_id):
-    laptop = get_object_or_404(Laptop, id=laptop_id)
-    
-    Historial.objects.create(
-        user=request.user,
-        laptop_model=laptop.model,
-        processor_brand=laptop.processor_brand,
-        processor_tier=laptop.processor_tier,
-        num_cores=laptop.num_cores,
-        num_threads=laptop.num_threads,
-        ram_memory=laptop.ram_memory,
-        primary_storage_type=laptop.primary_storage_type,
-        primary_storage_capacity=laptop.primary_storage_capacity,
-        secondary_storage_type=laptop.secondary_storage_type,
-        secondary_storage_capacity=laptop.secondary_storage_capacity,
-        gpu_brand=laptop.gpu_brand,
-        gpu_type=laptop.gpu_type
-    )
-    
-    return redirect('verRecomendaciones')  # Redirige a la página de recomendaciones después de guardar
-"""
+def guardar_recomendacion(request):
+    if request.method == 'POST':
+        # Obtener los datos del formulario
+        brand = request.POST['brand']
+        model = request.POST['model']
+        processor_brand = request.POST['processor_brand']
+        processor_tier = request.POST['processor_tier']
+        num_cores = request.POST['num_cores']
+        num_threads = request.POST['num_threads']
+        ram_memory = request.POST['ram_memory']
+        primary_storage_type = request.POST['primary_storage_type']
+        primary_storage_capacity = request.POST['primary_storage_capacity']
+        secondary_storage_type = request.POST.get('secondary_storage_type', None)
+        secondary_storage_capacity = request.POST.get('secondary_storage_capacity', None)
+        gpu_brand = request.POST['gpu_brand']
+        gpu_type = request.POST['gpu_type']
+
+        # Obtener el usuario actualmente autenticado
+        user = request.user
+
+        # Crear una nueva instancia de Historial
+        recommendation = Historial.objects.create(
+            user=user,
+            brand=brand,
+            model=model,
+            processor_brand=processor_brand,
+            processor_tier=processor_tier,
+            num_cores=num_cores,
+            num_threads=num_threads,
+            ram_memory=ram_memory,
+            primary_storage_type=primary_storage_type,
+            primary_storage_capacity=primary_storage_capacity,
+            secondary_storage_type=secondary_storage_type,
+            secondary_storage_capacity=secondary_storage_capacity,
+            gpu_brand=gpu_brand,
+            gpu_type=gpu_type
+        )
+
+        # Guardar la instancia
+        recommendation.save()
+
+        # Añadir un mensaje de éxito
+        messages.success(request, 'Recomendación guardada correctamente.')
+
+        # Redireccionar a donde desees
+        return redirect('recomendaciones')
+
+    # Manejar otras condiciones como GET, etc.
+    return redirect('recomendaciones')
