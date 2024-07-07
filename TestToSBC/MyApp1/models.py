@@ -63,6 +63,7 @@ class Message(models.Model):
     def __str__(self):
         return f'{self.get_message_type_display()}: {self.content[:100]}'
 #MODELO DEL HISTORIAL=======================================================
+"""
 class Historial(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     laptop_model = models.CharField(max_length=255)
@@ -78,3 +79,4 @@ class Historial(models.Model):
     gpu_brand = models.CharField(max_length=255)
     gpu_type = models.CharField(max_length=255)
     date_saved = models.DateTimeField(auto_now_add=True)
+"""

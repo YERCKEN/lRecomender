@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 # DEPENDENCIAS RECOMENDACIÓN
-from .models import Software, Historial, Laptop
+from .models import Software, Laptop
 from django.shortcuts import render, redirect
 from .recomenderFolder.recomender import get_recommendations
 from django.views.decorators.csrf import csrf_protect
@@ -157,6 +157,7 @@ def verRecomendaciones(request):
         'laptops': recommended_laptops
     })
 #VER HISTORIAL======================================
+"""
 @login_required
 def guardar_recomendacion(request, laptop_id):
     laptop = get_object_or_404(Laptop, id=laptop_id)
@@ -178,3 +179,4 @@ def guardar_recomendacion(request, laptop_id):
     )
     
     return redirect('verRecomendaciones')  # Redirige a la página de recomendaciones después de guardar
+"""
