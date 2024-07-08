@@ -193,47 +193,7 @@
             {% endif %}
         </div>
     </div>
-    <h2>Historial de Recomendaciones</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Marca del Procesador</th>
-                <th>Tier del Procesador</th>
-                <th>Número de Núcleos</th>
-                <th>Número de Hilos</th>
-                <th>Memoria RAM (GB)</th>
-                <th>Tipo de Almacenamiento Primario</th>
-                <th>Capacidad de Almacenamiento Primario (GB)</th>
-                <th>Tipo de Almacenamiento Secundario</th>
-                <th>Capacidad de Almacenamiento Secundario (GB)</th>
-                <th>Marca de GPU</th>
-                <th>Tipo de GPU</th>
-                <th>Fecha Guardada</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in historial %}
-                <tr>
-                    <td>{{ item.brand }}</td>
-                    <td>{{ item.model }}</td>
-                    <td>{{ item.processor_brand }}</td>
-                    <td>{{ item.processor_tier }}</td>
-                    <td>{{ item.num_cores }}</td>
-                    <td>{{ item.num_threads }}</td>
-                    <td>{{ item.ram_memory }}</td>
-                    <td>{{ item.primary_storage_type }}</td>
-                    <td>{{ item.primary_storage_capacity }}</td>
-                    <td>{{ item.secondary_storage_type }}</td>
-                    <td>{{ item.secondary_storage_capacity }}</td>
-                    <td>{{ item.gpu_brand }}</td>
-                    <td>{{ item.gpu_type }}</td>
-                    <td>{{ item.date_saved }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    
     <h2>Laptops Recomendadas</h2>
     <ul>
         {% for laptop in laptops %}
