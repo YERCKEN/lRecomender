@@ -19,6 +19,11 @@ def home(request):
 #PERFIL  =  = == = = == = = = = = = = = = == == = = = == = = = =
 def perfil(request):
    
+   #REDIRECCIONAR SI NO ESTÁ AUTENTICADO
+    if (request.user.is_authenticated == False):
+        return redirect('login')
+    
+
     return render(request, 'perfil.html')
   
 
