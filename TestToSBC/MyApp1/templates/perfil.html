@@ -26,7 +26,6 @@
             <form action="{% url 'logout' %}">
 
                 <button class="btnLogout">
-                    <!-- <img src="{% static 'img/logoutBlack.png' %}" alt=""> -->
                 </button>
 
             </form>
@@ -78,41 +77,42 @@
         <div class="historial">
 
             <h2>Historial de Recomendaciones</h2>
+            
             <table>
                 <thead>
                     <tr>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th>Marca del Procesador</th>
-                        <th>Tier del Procesador</th>
-                        <th>Número de Núcleos</th>
-                        <th>Número de Hilos</th>
-                        <th>Memoria RAM (GB)</th>
-                        <th>Tipo de Almacenamiento Primario</th>
-                        <th>Capacidad de Almacenamiento Primario (GB)</th>
-                        <th>Tipo de Almacenamiento Secundario</th>
-                        <th>Capacidad de Almacenamiento Secundario (GB)</th>
-                        <th>Marca de GPU</th>
-                        <th>Tipo de GPU</th>
-                        <th>Fecha Guardada</th>
+                        <th style="width: 250px;">MODEL</th>
+                        <th>CPU</th>
+                        <th>RAM (GB)</th>
+                        <!-- <th>Tipo de Almacenamiento Primario</th> -->
+                        <th>DISK 1 (GB)</th>
+                        <!-- <th>Tipo de Almacenamiento Secundario</th>
+                        <th>Capacidad de Almacenamiento Secundario (GB)</th> -->
+                        <th>GPU</th>
+                    
+                        <th>DATE</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for item in historial %}
                         <tr>
-                            <td>{{ item.brand }}</td>
-                            <td>{{ item.model }}</td>
-                            <td>{{ item.processor_brand }}</td>
-                            <td>{{ item.processor_tier }}</td>
-                            <td>{{ item.num_cores }}</td>
-                            <td>{{ item.num_threads }}</td>
+                            <td style="width: 250px;">{{ item.model }}</td>
+                            <!-- procesador -->
+                            <td>
+                                {{ item.processor_brand }}
+                                {{ item.processor_tier }}<br>
+                                Núcleos: {{ item.num_cores }}<br>
+                                Hilos: {{ item.num_threads }}
+                            </td>
                             <td>{{ item.ram_memory }}</td>
-                            <td>{{ item.primary_storage_type }}</td>
+                            <!-- <td>{{ item.primary_storage_type }}</td> -->
                             <td>{{ item.primary_storage_capacity }}</td>
-                            <td>{{ item.secondary_storage_type }}</td>
-                            <td>{{ item.secondary_storage_capacity }}</td>
-                            <td>{{ item.gpu_brand }}</td>
-                            <td>{{ item.gpu_type }}</td>
+                            <!-- <td>{{ item.secondary_storage_type }}</td>
+                            <td>{{ item.secondary_storage_capacity }}</td> -->
+                            <td>{{ item.gpu_brand }}<br>
+                                {{ item.gpu_type }}
+                            </td>
+                            
                             <td>{{ item.date_saved }}</td>
                         </tr>
                     {% endfor %}
@@ -120,6 +120,8 @@
             </table>
         </div>
 
+
+        
     </div>
    
 

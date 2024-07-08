@@ -93,6 +93,8 @@ def entornoExperto(request):
          
         # Guardamos los datos en la sesión
         request.session['recommended_laptops'] = recommended_laptops
+        request.session['entornoAnterior'] = 'Experto'
+        request.session['filters'] = filters
         
         # Retornamos la vista de las recomendaciones y mandamos las laptops recomendadas
         return redirect('recomendaciones')
@@ -154,6 +156,10 @@ def entornoNoExperto(request):
         print('\n=============================== ==============================\n')
         # Guardamos los datos en la sesión
         request.session['recommended_laptops'] = recommended_laptops
+        request.session['filters'] = filters
+        
+        request.session['entornoAnterior'] = 'noExperto'
+        
         
         # Retornamos la vista de las recomendaciones y mandamos las laptops recomendadas
         return redirect('recomendaciones')
@@ -166,11 +172,16 @@ def verRecomendaciones(request):
     
     # Recupera los datos de la sesión
     recommended_laptops = request.session.get('recommended_laptops')
+    especificaciones = request.session.get('filters')
+    
     
     return render(request, 'entornos/recomendaciones.html', {
-        'laptops': recommended_laptops
+        'laptops': recommended_laptops,
+        'especificaciones': especificaciones,
+        'entornoAnterior': request.session.get('entornoAnterior')
     })
 #VER HISTORIAL======================================
+
 @login_required
 def guardar_recomendacion(request):
     if request.method == 'POST':

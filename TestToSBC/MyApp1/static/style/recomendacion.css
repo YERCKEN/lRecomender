@@ -24,9 +24,15 @@
 }
 
 
+.recomendaciones .uno {
+  
+    transform:  scale(calc(0.90));
+
+}
+
 .recomendaciones .dos {
   
-    transform:  scale(calc(0.94));
+    transform:  scale(calc(0.90));
 
 }
 
@@ -50,27 +56,6 @@
 
 }
 
-.recomendaciones .uno:hover{
-
-
-    margin-right: 1rem;
-    
-}
-
-.recomendaciones .dos:hover{
-   
-
-    margin-right: 1rem;
-    margin-left: 1rem;
-
-
-}
-
-.recomendaciones .tres:hover{
- 
-    margin-left: 1rem;
-}
-
 
 
 
@@ -85,7 +70,7 @@
     font-style: italic;
 
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 
 }
 
@@ -203,3 +188,59 @@
 
     color: #043b8d;
 }
+
+
+.especificacionesIngresadas{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+    display: flex;
+    justify-content: center;
+ 
+    flex-wrap: wrap;
+
+    margin-bottom: 2rem;
+    align-items: center;
+
+
+    
+}
+
+#titleEspecificacionesIngresadas{
+
+    width: 20%;
+    font-size: 0.8rem;
+    font-style: italic;
+    text-align: center;
+    font-weight: 500;
+
+
+    background-color:  #ecf3ff;
+    padding: 1rem;
+    color: #3885FC;
+
+
+}
+
+
+.especificacionesIngresadas p{
+    background-color:  #ecf3ff;
+    border-radius: 5px;
+
+    width: 10%;
+    padding: 1rem;
+
+    margin-left: 1rem;
+    text-align: center;
+
+    color: #3885FC;
+    font-weight: 400;
+
+    font-size: 0.8rem;
+
+}
+
+#nuevaRecomendacion{
+    width: 100%;
+}
+

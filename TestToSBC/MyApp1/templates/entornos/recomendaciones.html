@@ -2,8 +2,24 @@
 {% load static %}
 {% block content%}
 
+
 {% if laptops %}
+
     <div class="recomendaciones">
+
+        <div class="idk" id="nuevaRecomendacion">
+
+            {% if entornoAnterior == 'noExperto' %}
+
+            <a href="{% url 'entornoNoExperto' %}"> ← Generar una nueva recomendación</a>
+        
+            {% elif entornoAnterior == 'Experto' %}
+
+                <a href="{% url 'entornoExperto' %}"> ← Generar una nueva recomendación</a>
+
+            {% endif%}
+        </div>
+
         <!---DIV OPCIÓN #1 ======================================================================-->
         <div class="laptop uno">
             {% if laptops %}
@@ -194,17 +210,42 @@
         </div>
     </div>
     
-    <h2>Laptops Recomendadas</h2>
+    <!-- <h2>Laptops Recomendadas</h2>
     <ul>
         {% for laptop in laptops %}
             <li>{{ laptop }}</li>
         {% endfor %}
-    </ul>
+    </ul> -->
+
+    <div class="especificacionesIngresadas">
+        <p id="titleEspecificacionesIngresadas">ESPECIFICACIONES:</p>
+
+        <p>CPU: {{ especificaciones.processor_tier}}</p>
+        <p>RAM: {{ especificaciones.ram_memory}}</p>
+        <p>DISK1: {{ especificaciones.primary_storage_capacity}}</p>
+
+    </div>
+
+
 {% else %}
+
     <div class="idk">
         <img src="{% static 'img/idk.jpg' %}" alt="">
+
         <p>Lo siento jefe, nuestra base de datos no cuenta con una PC que cumpla con las especificaciones ingresadas.</p>
-        <a href="{% url 'entornos' %}"> ← Volver a intentar</a>
+
+        {% if entornoAnterior == 'noExperto' %}
+
+            <a href="{% url 'entornoNoExperto' %}"> ← Volver a intentar</a>
+        
+        {% elif entornoAnterior == 'Experto' %}
+
+            <a href="{% url 'entornoExperto' %}"> ← Volver a intentar</a>
+
+        {% endif%}
+
+
     </div>
+
 {% endif %}
 {% endblock %}

@@ -40,7 +40,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 4rem
+    margin-left: 4rem;
+
+
 
 }
 
@@ -166,4 +168,12 @@
 
 ::-webkit-scrollbar-track {
     background-color:  #eff5fe; /* Color de la pista de la barra */
+}
+
+#pageSelected{
+    color: #3885FC;
+    font-weight: 600;
+    height: max-content;
+    font-style: italic;
+    font-size: 1rem;
 }

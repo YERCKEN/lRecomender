@@ -1,4 +1,3 @@
-
 {% load static %}
 
 <!DOCTYPE html>
@@ -50,8 +49,30 @@
        <!--lISTA-->
        <div class="header-opciones">
 
-            <ul><a href="{% url 'home' %}">Inicio</a></ul>
-            <ul><a href="{% url 'entornos' %}">Entornos</a></ul>
+            {% if request.path == '/' %}
+
+                <ul><a  id="pageSelected" href="{% url 'home' %}">Inicio</a></ul>
+
+            {% else %}
+
+                <ul><a href="{% url 'home' %}">Inicio</a></ul>
+
+            {% endif %}
+
+
+            {% if request.path == '/entornos' or request.path == '/entornoNoExperto' or request.path == '/entornoExperto'  %}
+
+                <ul><a id="pageSelected" href="{% url 'entornos' %}">Entornos</a></ul>
+
+
+            {% else %}
+
+                <ul><a href="{% url 'entornos' %}">Entornos</a></ul>
+
+
+            {% endif %}
+
+
 
      
             <!--BOTONES-->
