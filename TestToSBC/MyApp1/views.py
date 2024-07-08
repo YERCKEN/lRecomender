@@ -165,9 +165,11 @@ def verRecomendaciones(request):
     # Recupera los datos de la sesión
     recommended_laptops = request.session.get('recommended_laptops')
     
+    # Obtener el historial de recomendaciones del usuario
+    historial = Historial.objects.filter(user=request.user)
     
     return render(request, 'entornos/recomendaciones.html', {
-        'laptops': recommended_laptops
+        'laptops': recommended_laptops,'historial': historial
     })
 #VER HISTORIAL======================================
 @login_required
